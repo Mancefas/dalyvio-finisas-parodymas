@@ -42,11 +42,11 @@ const Rezultatai = () => {
       </Container>
       <Container className={"container"} maxWidth="sm">
         <ul>
-          {rezultatai.map((rezultatas) => (
-            <li key={rezultatas.dalyvis}>
+          {rezultatai.map((rezultatas, indx) => (
+            <li key={rezultatas.laikas}>
               <Paper elevation={4}>
                 <h2>Dalyvio numeris : {rezultatas.dalyvis}</h2>
-                <h3>Atvažiavo į finišą : {rezultatas.atvaziavo}</h3>
+                <h3>Atvažiavo į finišą : {indx + 1}</h3>
                 <p>Finišavimo laikas : {rezultatas.laikas}</p>
               </Paper>
             </li>
