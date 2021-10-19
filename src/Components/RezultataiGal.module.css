@@ -1,0 +1,13 @@
+.container {
+  text-align: center;
+}
+
+.progressBar {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.errMsg {
+  color: red;
+  margin-bottom: 1rem;
+}
