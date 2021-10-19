@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Rezultatai.css";
+import "./RezultataiPrel.css";
 import { Paper, Container, Button, LinearProgress } from "@mui/material";
 
-const Rezultatai = () => {
+const RezultataiPrel = () => {
   const [rezultatai, setRezultatai] = useState([]);
   const [loading, setLoading] = useState();
 
@@ -22,7 +22,8 @@ const Rezultatai = () => {
         dalyvis: data[key].dalyvis,
       });
     }
-
+    console.log(data);
+    console.log(dataGauta);
     setRezultatai(dataGauta);
     setLoading(false);
   };
@@ -34,10 +35,10 @@ const Rezultatai = () => {
       <Container className={"btn"} maxWidth="xs">
         <Button
           onClick={rezultataiDataHandler}
-          variant="contained"
+          variant="outlined"
           color="success"
         >
-          Rezultatai
+          Rezultatai-preliminarūs
         </Button>
       </Container>
       <Container className={"container"} maxWidth="sm">
@@ -57,4 +58,4 @@ const Rezultatai = () => {
   );
 };
 
-export default Rezultatai;
+export default RezultataiPrel;

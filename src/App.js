@@ -1,8 +1,12 @@
 import "./App.css";
-import Rezultatai from "./Components/Rezultatai";
+import RezultataiPrel from "./Components/RezultataiPrel";
 
 function App() {
-  return <Rezultatai />;
+  return (
+    <>
+      <RezultataiPrel />
+    </>
+  );
 }
 
 export default App;
