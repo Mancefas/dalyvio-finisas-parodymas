@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./RezultataiGal.module.css";
-import { Button, Container, LinearProgress, Box } from "@mui/material";
+import { Button, Container, LinearProgress } from "@mui/material";
+import RezultataiGalRodymas from "../RezultataiGal/RezultataiGalRodymas";
 
 const RezultataiGal = () => {
   const [load, setLoad] = useState(false);
@@ -22,6 +23,8 @@ const RezultataiGal = () => {
     setLoad(false);
   };
 
+  console.log();
+
   return (
     <Container className={classes.container}>
       {error && <p className={classes.errMsg}>Error : {error}</p>}
@@ -29,6 +32,9 @@ const RezultataiGal = () => {
       <Button onClick={rezHandler} variant="contained">
         Galutiniai rezultatai
       </Button>
+      {galutiniaiRez.length > 0 && (
+        <RezultataiGalRodymas galutiniaiRez={galutiniaiRez} />
+      )}
     </Container>
   );
 };
