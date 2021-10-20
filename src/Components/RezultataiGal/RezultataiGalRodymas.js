@@ -63,7 +63,7 @@ const RezultataiGalRodymas = (props) => {
           <Grid className={classes.grid} item xs={4}>
             {distM.map((elm, i) => (
               <ul className={classes.pirmas} key={elm.laikas}>
-                <Paper elevation={3}>
+                <Paper elevation={3} className={classes.name}>
                   <li>
                     <h3>
                       {elm.vardas} {elm.pavarde[0]}
@@ -80,7 +80,7 @@ const RezultataiGalRodymas = (props) => {
           <Grid item xs={4}>
             {distM40.map((elm, i) => (
               <ul className={classes.pirmas} key={elm.laikas}>
-                <Paper elevation={3}>
+                <Paper elevation={3} className={classes.name}>
                   <li>
                     <h3>
                       {elm.vardas} {elm.pavarde[0]}
@@ -99,7 +99,7 @@ const RezultataiGalRodymas = (props) => {
           <Grid item xs={4}>
             {distW.map((elm, i) => (
               <ul className={classes.pirmas} key={elm.laikas}>
-                <Paper elevation={3}>
+                <Paper elevation={3} className={classes.name}>
                   <li>
                     <h3>
                       {elm.vardas} {elm.pavarde[0]}
