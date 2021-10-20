@@ -1,3 +1,14 @@
-.grid {
-  /* background-color: saddlebrown; */
+.pirmas {
+  border-radius: 10px;
+}
+
+.pirmas:first-child {
+  background-color: rgba(255, 255, 0, 0.2);
+  padding: 1rem;
+}
+.pirmas:nth-child(2) {
+  background-color: rgba(192, 192, 192, 0.2);
+}
+.pirmas:nth-child(3) {
+  background-color: rgba(181, 166, 66, 0.2);
 }

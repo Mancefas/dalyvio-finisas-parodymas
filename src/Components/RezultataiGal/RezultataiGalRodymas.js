@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../RezultataiGal/RezultataiGalRodymas.module.css";
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 
 const RezultataiGalRodymas = (props) => {
   const { galutiniaiRez } = props;
@@ -62,51 +62,55 @@ const RezultataiGalRodymas = (props) => {
         <Grid container spacing={2}>
           <Grid className={classes.grid} item xs={4}>
             {distM.map((elm, i) => (
-              <ul key={elm.laikas}>
-                <li>
-                  <h3>
-                    {elm.vardas} {elm.pavarde[0]}
-                  </h3>{" "}
-                  finišavo {i + 1}
-                </li>
-
-                <li>Kategorija : {elm.kategorija}</li>
-
-                <li>Finišavimo laikas : {elm.laikas}</li>
+              <ul className={classes.pirmas} key={elm.laikas}>
+                <Paper elevation={3}>
+                  <li>
+                    <h3>
+                      {elm.vardas} {elm.pavarde[0]}
+                    </h3>{" "}
+                    finišavo {i + 1}
+                  </li>
+                  <li>Kategorija : {elm.kategorija}</li>
+                  <li>Finišavimo laikas : {elm.laikas}</li>
+                </Paper>
               </ul>
             ))}
           </Grid>
 
           <Grid item xs={4}>
             {distM40.map((elm, i) => (
-              <ul key={elm.laikas}>
-                <li>
-                  <h3>
-                    {elm.vardas} {elm.pavarde[0]}
-                  </h3>{" "}
-                  finišavo {i + 1}
-                </li>
+              <ul className={classes.pirmas} key={elm.laikas}>
+                <Paper elevation={3}>
+                  <li>
+                    <h3>
+                      {elm.vardas} {elm.pavarde[0]}
+                    </h3>{" "}
+                    finišavo {i + 1}
+                  </li>
 
-                <li>Kategorija : {elm.kategorija}</li>
+                  <li>Kategorija : {elm.kategorija}</li>
 
-                <li>Finišavimo laikas : {elm.laikas}</li>
+                  <li>Finišavimo laikas : {elm.laikas}</li>
+                </Paper>
               </ul>
             ))}
           </Grid>
 
           <Grid item xs={4}>
             {distW.map((elm, i) => (
-              <ul key={elm.laikas}>
-                <li>
-                  <h3>
-                    {elm.vardas} {elm.pavarde[0]}
-                  </h3>{" "}
-                  finišavo {i + 1}
-                </li>
+              <ul className={classes.pirmas} key={elm.laikas}>
+                <Paper elevation={3}>
+                  <li>
+                    <h3>
+                      {elm.vardas} {elm.pavarde[0]}
+                    </h3>{" "}
+                    finišavo {i + 1}
+                  </li>
 
-                <li>Kategorija : {elm.kategorija}</li>
+                  <li>Kategorija : {elm.kategorija}</li>
 
-                <li>Finišavimo laikas : {elm.laikas}</li>
+                  <li>Finišavimo laikas : {elm.laikas}</li>
+                </Paper>
               </ul>
             ))}
           </Grid>
