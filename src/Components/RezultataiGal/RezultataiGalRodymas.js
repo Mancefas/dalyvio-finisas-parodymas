@@ -65,10 +65,8 @@ const RezultataiGalRodymas = (props) => {
               <ul className={classes.pirmas} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
                   <li>
-                    <h3>
-                      {elm.vardas} {elm.pavarde[0]}
-                    </h3>{" "}
-                    finišavo {i + 1}
+                    <h3>{elm.vardas}</h3>
+                    <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
                   </li>
                   <li>Kategorija : {elm.kategorija}</li>
                   <li>Finišavimo laikas : {elm.laikas}</li>
@@ -82,10 +80,8 @@ const RezultataiGalRodymas = (props) => {
               <ul className={classes.pirmas} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
                   <li>
-                    <h3>
-                      {elm.vardas} {elm.pavarde[0]}
-                    </h3>{" "}
-                    finišavo {i + 1}
+                    <h3>{elm.vardas}</h3>
+                    <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
                   </li>
 
                   <li>Kategorija : {elm.kategorija}</li>
@@ -101,10 +97,8 @@ const RezultataiGalRodymas = (props) => {
               <ul className={classes.pirmas} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
                   <li>
-                    <h3>
-                      {elm.vardas} {elm.pavarde[0]}
-                    </h3>{" "}
-                    finišavo {i + 1}
+                    <h3>{elm.vardas}</h3>
+                    <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
                   </li>
 
                   <li>Kategorija : {elm.kategorija}</li>

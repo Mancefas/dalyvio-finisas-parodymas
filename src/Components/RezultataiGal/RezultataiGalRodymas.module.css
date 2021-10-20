@@ -1,17 +1,18 @@
 .pirmas {
   border-radius: 10px;
+  padding: 7px;
 }
 
 .pirmas:first-child {
-  background-color: rgba(255, 255, 0, 0.2);
+  background-color: rgba(255, 255, 0, 0.5);
   padding: 7px;
 }
 .pirmas:nth-child(2) {
-  background-color: rgba(192, 192, 192, 0.3);
+  background-color: rgba(192, 192, 192, 0.5);
   padding: 7px;
 }
 .pirmas:nth-child(3) {
-  background-color: rgba(181, 166, 66, 0.3);
+  background-color: rgba(181, 166, 66, 0.5);
   padding: 7px;
 }
 
