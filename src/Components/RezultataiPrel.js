@@ -35,11 +35,7 @@ const RezultataiPrel = () => {
       {loading && <LinearProgress color="success" />}
 
       <Container className={"btn"} maxWidth="xs">
-        <Button
-          onClick={rezultataiDataHandler}
-          variant="outlined"
-          color="success"
-        >
+        <Button onClick={rezultataiDataHandler} variant="outlined">
           Rezultatai-preliminarūs
         </Button>
       </Container>
