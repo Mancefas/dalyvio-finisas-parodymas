@@ -5,6 +5,7 @@ import { Paper, Container, Button, LinearProgress } from "@mui/material";
 const RezultataiPrel = () => {
   const [rezultatai, setRezultatai] = useState([]);
   const [loading, setLoading] = useState();
+  const [show, setShow] = useState(false);
 
   const rezultataiDataHandler = async () => {
     setLoading(true);
@@ -26,10 +27,11 @@ const RezultataiPrel = () => {
     console.log(dataGauta);
     setRezultatai(dataGauta);
     setLoading(false);
+    setShow(!show);
   };
 
   return (
-    <div>
+    <Container>
       {loading && <LinearProgress color="success" />}
 
       <Container className={"btn"} maxWidth="xs">
@@ -41,20 +43,22 @@ const RezultataiPrel = () => {
           Rezultatai-preliminarūs
         </Button>
       </Container>
-      <Container className={"container"} maxWidth="sm">
-        <ul>
-          {rezultatai.map((rezultatas, indx) => (
-            <li key={rezultatas.laikas}>
-              <Paper elevation={4}>
-                <h2>Dalyvio numeris : {rezultatas.dalyvis}</h2>
-                <h3>Atvažiavo į finišą : {indx + 1}</h3>
-                <p>Finišavimo laikas : {rezultatas.laikas}</p>
-              </Paper>
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </div>
+      {show && (
+        <Container className={"container"}>
+          <ul>
+            {rezultatai.map((rezultatas, indx) => (
+              <li key={rezultatas.laikas}>
+                <Paper elevation={4}>
+                  <h2>Dalyvio numeris : {rezultatas.dalyvis}</h2>
+                  <h3>Atvažiavo į finišą : {indx + 1}</h3>
+                  <p>Finišavimo laikas : {rezultatas.laikas}</p>
+                </Paper>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      )}
+    </Container>
   );
 };
 
