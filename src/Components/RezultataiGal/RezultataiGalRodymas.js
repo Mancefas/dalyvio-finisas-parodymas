@@ -16,25 +16,36 @@ const RezultataiGalRodymas = (props) => {
   const distancija = (event) => {
     const distClicked = event;
 
-    const M = galutiniaiRez.filter((word) => {
-      return word.distancija === +distClicked && word.kategorija === "M";
-    });
+    const M = galutiniaiRez
+      .filter((word) => {
+        return word.distancija === +distClicked && word.kategorija === "M";
+      })
+      .sort((a, b) => (a.laikas > b.laikas ? 1 : -1))
+      .slice(0, 3);
+
+    console.log(M);
 
     setDistM(M);
 
-    const M40 = galutiniaiRez.filter((word) => {
-      return word.distancija === +distClicked && word.kategorija === "M40";
-    });
+    const M40 = galutiniaiRez
+      .filter((word) => {
+        return word.distancija === +distClicked && word.kategorija === "M40";
+      })
+      .sort((a, b) => (a.laikas > b.laikas ? 1 : -1))
+      .slice(0, 3);
+
     setDistM40(M40);
 
-    const W = galutiniaiRez.filter((word) => {
-      return word.distancija === +distClicked && word.kategorija === "W";
-    });
+    const W = galutiniaiRez
+      .filter((word) => {
+        return word.distancija === +distClicked && word.kategorija === "W";
+      })
+      .sort((a, b) => (a.laikas > b.laikas ? 1 : -1))
+      .slice(0, 3);
+
     setDistW(W);
     setShowRez(true);
   };
-
-  console.log(distM[0]);
 
   return (
     <>
@@ -64,83 +75,99 @@ const RezultataiGalRodymas = (props) => {
 
       {showRez && (
         <Grid container spacing={2}>
-          <Grid className={classes.grid} item xs={4}>
-            <div className={classes.kategorija}>
-              <p>Kategorija </p>
-              <Avatar variant="square">{distM[0].kategorija}</Avatar>{" "}
+          <Grid className={classes.gridInnerItem} item xs={12}>
+            <div>
+              <div className={classes.kategorija}>
+                <p>Kategorija </p>
+                <Avatar variant="square">{distM[0].kategorija}</Avatar>{" "}
+              </div>
+
+              <div className={classes.item}>
+                {distM.map((elm, i) => (
+                  <ul className={classes.ul}>
+                    <Paper
+                      elevation={3}
+                      className={classes.name}
+                      key={elm.laikas}
+                    >
+                      <div className={classes.icon}>
+                        <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                      </div>
+
+                      <li>
+                        <h3>{elm.vardas}</h3>
+                        <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
+                      </li>
+                      <li>Finišavimo laikas : {elm.laikas.slice(0, 7)} </li>
+                    </Paper>
+                  </ul>
+                ))}
+              </div>
             </div>
-
-            {distM.map((elm, i) => (
-              <ul className={classes.ul}>
-                <Paper elevation={3} className={classes.name} key={elm.laikas}>
-                  {i >= 0 && i <= 2 && (
-                    <div className={classes.icon}>
-                      <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                    </div>
-                  )}
-                  <li>
-                    <h3>{elm.vardas}</h3>
-                    <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
-                  </li>
-                  <li>Finišavimo laikas : {elm.laikas}</li>
-                </Paper>
-              </ul>
-            ))}
           </Grid>
 
-          <Grid item xs={4}>
-            {distM40.length > 0 && (
-              <div className={classes.kategorija}>
-                <p>Kategorija </p>
-                <Badge
-                  badgeContent={distM40[0].kategorija.slice(1, 3)}
-                  color="primary"
-                >
-                  <Avatar variant="square"> {distM40[0].kategorija[0]} </Avatar>{" "}
-                </Badge>
+          <Grid className={classes.gridInnerItem} item xs={12}>
+            <div>
+              {distM40.length > 0 && (
+                <div className={classes.kategorija}>
+                  <p>Kategorija </p>
+                  <Badge
+                    badgeContent={distM40[0].kategorija.slice(1, 3)}
+                    color="primary"
+                  >
+                    <Avatar variant="square">
+                      {" "}
+                      {distM40[0].kategorija[0]}{" "}
+                    </Avatar>{" "}
+                  </Badge>
+                </div>
+              )}
+              <div className={classes.item}>
+                {distM40.map((elm, i) => (
+                  <ul className={classes.ul} key={elm.laikas}>
+                    <Paper elevation={3} className={classes.name}>
+                      <div className={classes.icon}>
+                        <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                      </div>
+
+                      <li>
+                        <h3>{elm.vardas}</h3>
+                        <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
+                      </li>
+                      <li>Finišavimo laikas : {elm.laikas.slice(0, 7)}</li>
+                    </Paper>
+                  </ul>
+                ))}
               </div>
-            )}
-            {distM40.map((elm, i) => (
-              <ul className={classes.ul} key={elm.laikas}>
-                <Paper elevation={3} className={classes.name}>
-                  {i >= 0 && i <= 2 && (
-                    <div className={classes.icon}>
-                      <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                    </div>
-                  )}
-                  <li>
-                    <h3>{elm.vardas}</h3>
-                    <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
-                  </li>
-                  <li>Finišavimo laikas : {elm.laikas}</li>
-                </Paper>
-              </ul>
-            ))}
+            </div>
           </Grid>
 
-          <Grid item xs={4}>
-            {distW.length > 0 && (
-              <div className={classes.kategorija}>
-                <p>Kategorija </p>
-                <Avatar>{distW[0].kategorija}</Avatar>{" "}
+          <Grid className={classes.gridInnerItem} item xs={12}>
+            <div>
+              {distW.length > 0 && (
+                <div className={classes.kategorija}>
+                  <p>Kategorija </p>
+                  <Avatar>{distW[0].kategorija}</Avatar>{" "}
+                </div>
+              )}
+              <div className={classes.item}>
+                {distW.map((elm, i) => (
+                  <ul className={classes.ul} key={elm.laikas}>
+                    <Paper elevation={3} className={classes.name}>
+                      <div className={classes.icon}>
+                        <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                      </div>
+
+                      <li>
+                        <h3>{elm.vardas}</h3>
+                        <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
+                      </li>
+                      <li>Finišavimo laikas : {elm.laikas.slice(0, 7)}</li>
+                    </Paper>
+                  </ul>
+                ))}
               </div>
-            )}
-            {distW.map((elm, i) => (
-              <ul className={classes.ul} key={elm.laikas}>
-                <Paper elevation={3} className={classes.name}>
-                  {i >= 0 && i <= 2 && (
-                    <div className={classes.icon}>
-                      <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                    </div>
-                  )}
-                  <li>
-                    <h3>{elm.vardas}</h3>
-                    <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
-                  </li>
-                  <li>Finišavimo laikas : {elm.laikas}</li>
-                </Paper>
-              </ul>
-            ))}
+            </div>
           </Grid>
         </Grid>
       )}

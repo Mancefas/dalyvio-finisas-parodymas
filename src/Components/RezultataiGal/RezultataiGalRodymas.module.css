@@ -3,17 +3,28 @@
   padding: 0px 8px 8px 8px;
 }
 
+.ul:nth-child(1) .icon {
+  color: rgba(255, 255, 0, 0.5);
+  padding: 0px 8px 8px 8px;
+}
 .ul:nth-child(2) .icon {
-  color: rgba(255, 255, 0, 0.4);
+  color: rgba(192, 192, 192, 0.7);
   padding: 0px 8px 8px 8px;
 }
 .ul:nth-child(3) .icon {
-  color: rgba(192, 192, 192, 0.5);
+  color: rgba(181, 166, 66, 0.7);
   padding: 0px 8px 8px 8px;
 }
-.ul:nth-child(4) .icon {
-  color: rgba(181, 166, 66, 0.5);
-  padding: 0px 8px 8px 8px;
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  padding: 1rem;
 }
 
 .name h3 {
@@ -26,10 +37,15 @@
   font-weight: 600;
 }
 
+.gridInnerItem {
+  display: flex;
+  flex-direction: row;
+}
+
 .kategorija {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1rem;
 }
