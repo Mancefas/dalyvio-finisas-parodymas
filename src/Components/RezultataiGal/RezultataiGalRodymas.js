@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import classes from "../RezultataiGal/RezultataiGalRodymas.module.css";
-import { Button, Grid, Paper, Avatar, Badge } from "@mui/material";
+import { Grid, Paper, Avatar, Badge, Tabs, Tab } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
 const RezultataiGalRodymas = (props) => {
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const { galutiniaiRez } = props;
 
   const [showRez, setShowRez] = useState(false);
@@ -49,28 +54,27 @@ const RezultataiGalRodymas = (props) => {
 
   return (
     <>
-      <div>
-        <Button
-          onClick={() => {
-            distancija("150");
-          }}
-        >
-          150km
-        </Button>
-        <Button
-          onClick={() => {
-            distancija("130");
-          }}
-        >
-          130km
-        </Button>
-        <Button
-          onClick={() => {
-            distancija("80");
-          }}
-        >
-          80km
-        </Button>
+      <div className={classes.distBtns}>
+        <Tabs onChange={handleChange} value={value}>
+          <Tab
+            label="150km"
+            onClick={() => {
+              distancija("150");
+            }}
+          />
+          <Tab
+            label="130km"
+            onClick={() => {
+              distancija("130");
+            }}
+          />
+          <Tab
+            label="80km"
+            onClick={() => {
+              distancija("80");
+            }}
+          />
+        </Tabs>
       </div>
 
       {showRez && (

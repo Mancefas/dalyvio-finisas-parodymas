@@ -1,3 +1,9 @@
+.distBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .ul {
   border-radius: 10px;
   padding: 0px 8px 8px 8px;
