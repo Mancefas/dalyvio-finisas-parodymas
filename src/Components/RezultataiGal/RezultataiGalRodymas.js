@@ -21,32 +21,21 @@ const RezultataiGalRodymas = (props) => {
   const distancija = (event) => {
     const distClicked = event;
 
-    const M = galutiniaiRez
-      .filter((word) => {
-        return word.distancija === +distClicked && word.kategorija === "M";
-      })
-      .sort((a, b) => (a.laikas > b.laikas ? 1 : -1))
-      .slice(0, 3);
-
-    console.log(M);
+    const M = galutiniaiRez.filter((word) => {
+      return word.distancija === +distClicked && word.kategorija === "M";
+    });
 
     setDistM(M);
 
-    const M40 = galutiniaiRez
-      .filter((word) => {
-        return word.distancija === +distClicked && word.kategorija === "M40";
-      })
-      .sort((a, b) => (a.laikas > b.laikas ? 1 : -1))
-      .slice(0, 3);
+    const M40 = galutiniaiRez.filter((word) => {
+      return word.distancija === +distClicked && word.kategorija === "M40";
+    });
 
     setDistM40(M40);
 
-    const W = galutiniaiRez
-      .filter((word) => {
-        return word.distancija === +distClicked && word.kategorija === "W";
-      })
-      .sort((a, b) => (a.laikas > b.laikas ? 1 : -1))
-      .slice(0, 3);
+    const W = galutiniaiRez.filter((word) => {
+      return word.distancija === +distClicked && word.kategorija === "W";
+    });
 
     setDistW(W);
     setShowRez(true);
@@ -79,7 +68,7 @@ const RezultataiGalRodymas = (props) => {
 
       {showRez && (
         <Grid container spacing={2}>
-          <Grid className={classes.gridInnerItem} item xs={12}>
+          <Grid className={classes.gridInnerItem} item xs={4}>
             <div>
               <div className={classes.kategorija}>
                 <p>Kategorija </p>
@@ -94,9 +83,11 @@ const RezultataiGalRodymas = (props) => {
                       className={classes.name}
                       key={elm.laikas}
                     >
-                      <div className={classes.icon}>
-                        <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                      </div>
+                      {i >= 0 && i <= 2 && (
+                        <div className={classes.icon}>
+                          <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                        </div>
+                      )}
 
                       <li>
                         <h3>{elm.vardas}</h3>
@@ -110,7 +101,7 @@ const RezultataiGalRodymas = (props) => {
             </div>
           </Grid>
 
-          <Grid className={classes.gridInnerItem} item xs={12}>
+          <Grid className={classes.gridInnerItem} item xs={4}>
             <div>
               {distM40.length > 0 && (
                 <div className={classes.kategorija}>
@@ -130,9 +121,11 @@ const RezultataiGalRodymas = (props) => {
                 {distM40.map((elm, i) => (
                   <ul className={classes.ul} key={elm.laikas}>
                     <Paper elevation={3} className={classes.name}>
-                      <div className={classes.icon}>
-                        <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                      </div>
+                      {i >= 0 && i <= 2 && (
+                        <div className={classes.icon}>
+                          <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                        </div>
+                      )}
 
                       <li>
                         <h3>{elm.vardas}</h3>
@@ -146,7 +139,7 @@ const RezultataiGalRodymas = (props) => {
             </div>
           </Grid>
 
-          <Grid className={classes.gridInnerItem} item xs={12}>
+          <Grid className={classes.gridInnerItem} item xs={4}>
             <div>
               {distW.length > 0 && (
                 <div className={classes.kategorija}>
@@ -158,9 +151,11 @@ const RezultataiGalRodymas = (props) => {
                 {distW.map((elm, i) => (
                   <ul className={classes.ul} key={elm.laikas}>
                     <Paper elevation={3} className={classes.name}>
-                      <div className={classes.icon}>
-                        <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                      </div>
+                      {i >= 0 && i <= 2 && (
+                        <div className={classes.icon}>
+                          <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                        </div>
+                      )}
 
                       <li>
                         <h3>{elm.vardas}</h3>
