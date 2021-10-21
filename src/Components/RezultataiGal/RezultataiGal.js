@@ -36,7 +36,7 @@ const RezultataiGal = () => {
           Galutiniai rezultatai
         </Button>
       </Container>
-      {show && <RezultataiGalRodymas galutiniaiRez={galutiniaiRez} />}
+      {!error && show && <RezultataiGalRodymas galutiniaiRez={galutiniaiRez} />}
     </Container>
   );
 };
