@@ -5,18 +5,23 @@
 
 .btn {
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 .container {
   text-align: center;
 }
 
-ul {
+.errMsg {
+  text-align: center;
+  color: red;
+}
+
+.ul {
   /* padding: 0; */
   padding: 1rem;
   list-style-type: none;
 }
-li {
+.li {
   padding-bottom: 1rem;
 }
