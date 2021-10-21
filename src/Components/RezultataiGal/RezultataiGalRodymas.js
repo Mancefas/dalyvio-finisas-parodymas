@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import classes from "../RezultataiGal/RezultataiGalRodymas.module.css";
 import { Button, Grid, Paper } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
 const RezultataiGalRodymas = (props) => {
   const { galutiniaiRez } = props;
@@ -64,6 +66,11 @@ const RezultataiGalRodymas = (props) => {
             {distM.map((elm, i) => (
               <ul className={classes.pirmas} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
+                  {i >= 0 && i <= 2 && (
+                    <div className={classes.icon}>
+                      <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                    </div>
+                  )}
                   <li>
                     <h3>{elm.vardas}</h3>
                     <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
@@ -79,6 +86,11 @@ const RezultataiGalRodymas = (props) => {
             {distM40.map((elm, i) => (
               <ul className={classes.pirmas} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
+                  {i >= 0 && i <= 2 && (
+                    <div className={classes.icon}>
+                      <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                    </div>
+                  )}
                   <li>
                     <h3>{elm.vardas}</h3>
                     <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
@@ -96,6 +108,11 @@ const RezultataiGalRodymas = (props) => {
             {distW.map((elm, i) => (
               <ul className={classes.pirmas} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
+                  {i >= 0 && i <= 2 && (
+                    <div className={classes.icon}>
+                      <FontAwesomeIcon icon={faMedal} size={"2x"} />
+                    </div>
+                  )}
                   <li>
                     <h3>{elm.vardas}</h3>
                     <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
