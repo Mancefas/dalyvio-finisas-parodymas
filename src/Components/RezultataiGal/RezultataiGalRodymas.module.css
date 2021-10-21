@@ -1,17 +1,17 @@
-.pirmas {
+.ul {
   border-radius: 10px;
   padding: 0px 8px 8px 8px;
 }
 
-.pirmas:first-child .icon {
+.ul:nth-child(2) .icon {
   color: rgba(255, 255, 0, 0.4);
   padding: 0px 8px 8px 8px;
 }
-.pirmas:nth-child(2) .icon {
+.ul:nth-child(3) .icon {
   color: rgba(192, 192, 192, 0.5);
   padding: 0px 8px 8px 8px;
 }
-.pirmas:nth-child(3) .icon {
+.ul:nth-child(4) .icon {
   color: rgba(181, 166, 66, 0.5);
   padding: 0px 8px 8px 8px;
 }
@@ -24,4 +24,12 @@
 .name li {
   font-family: "Nunito", sans-serif;
   font-weight: 600;
+}
+
+.kategorija {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }

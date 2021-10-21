@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../RezultataiGal/RezultataiGalRodymas.module.css";
-import { Button, Grid, Paper } from "@mui/material";
+import { Button, Grid, Paper, Avatar, Badge } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
@@ -34,6 +34,8 @@ const RezultataiGalRodymas = (props) => {
     setShowRez(true);
   };
 
+  console.log(distM[0]);
+
   return (
     <>
       <div>
@@ -63,9 +65,14 @@ const RezultataiGalRodymas = (props) => {
       {showRez && (
         <Grid container spacing={2}>
           <Grid className={classes.grid} item xs={4}>
+            <div className={classes.kategorija}>
+              <p>Kategorija </p>
+              <Avatar variant="square">{distM[0].kategorija}</Avatar>{" "}
+            </div>
+
             {distM.map((elm, i) => (
-              <ul className={classes.pirmas} key={elm.laikas}>
-                <Paper elevation={3} className={classes.name}>
+              <ul className={classes.ul}>
+                <Paper elevation={3} className={classes.name} key={elm.laikas}>
                   {i >= 0 && i <= 2 && (
                     <div className={classes.icon}>
                       <FontAwesomeIcon icon={faMedal} size={"2x"} />
@@ -75,7 +82,6 @@ const RezultataiGalRodymas = (props) => {
                     <h3>{elm.vardas}</h3>
                     <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
                   </li>
-                  <li>Kategorija : {elm.kategorija}</li>
                   <li>Finišavimo laikas : {elm.laikas}</li>
                 </Paper>
               </ul>
@@ -83,8 +89,19 @@ const RezultataiGalRodymas = (props) => {
           </Grid>
 
           <Grid item xs={4}>
+            {distM40.length > 0 && (
+              <div className={classes.kategorija}>
+                <p>Kategorija </p>
+                <Badge
+                  badgeContent={distM40[0].kategorija.slice(1, 3)}
+                  color="primary"
+                >
+                  <Avatar variant="square"> {distM40[0].kategorija[0]} </Avatar>{" "}
+                </Badge>
+              </div>
+            )}
             {distM40.map((elm, i) => (
-              <ul className={classes.pirmas} key={elm.laikas}>
+              <ul className={classes.ul} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
                   {i >= 0 && i <= 2 && (
                     <div className={classes.icon}>
@@ -95,9 +112,6 @@ const RezultataiGalRodymas = (props) => {
                     <h3>{elm.vardas}</h3>
                     <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
                   </li>
-
-                  <li>Kategorija : {elm.kategorija}</li>
-
                   <li>Finišavimo laikas : {elm.laikas}</li>
                 </Paper>
               </ul>
@@ -105,8 +119,14 @@ const RezultataiGalRodymas = (props) => {
           </Grid>
 
           <Grid item xs={4}>
+            {distW.length > 0 && (
+              <div className={classes.kategorija}>
+                <p>Kategorija </p>
+                <Avatar>{distW[0].kategorija}</Avatar>{" "}
+              </div>
+            )}
             {distW.map((elm, i) => (
-              <ul className={classes.pirmas} key={elm.laikas}>
+              <ul className={classes.ul} key={elm.laikas}>
                 <Paper elevation={3} className={classes.name}>
                   {i >= 0 && i <= 2 && (
                     <div className={classes.icon}>
@@ -117,9 +137,6 @@ const RezultataiGalRodymas = (props) => {
                     <h3>{elm.vardas}</h3>
                     <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
                   </li>
-
-                  <li>Kategorija : {elm.kategorija}</li>
-
                   <li>Finišavimo laikas : {elm.laikas}</li>
                 </Paper>
               </ul>
