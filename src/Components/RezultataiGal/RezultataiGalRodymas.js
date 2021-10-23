@@ -90,10 +90,13 @@ const RezultataiGalRodymas = (props) => {
                       )}
 
                       <li>
-                        <h3>{elm.vardas}</h3>
-                        <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
+                        <h4>{elm.vardas}</h4>
+                        <h4> {elm.pavarde[0]}</h4> finišavo <h4>{i + 1}</h4>
                       </li>
-                      <li>Finišavimo laikas : {elm.laikas.slice(0, 7)} </li>
+                      <li>
+                        <p>Finišavimo laikas :</p>
+                        <p>{elm.laikas.slice(0, 7)}</p>
+                      </li>
                     </Paper>
                   </ul>
                 ))}
@@ -120,10 +123,13 @@ const RezultataiGalRodymas = (props) => {
                       )}
 
                       <li>
-                        <h3>{elm.vardas}</h3>
-                        <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
+                        <h4>{elm.vardas}</h4>
+                        <h4> {elm.pavarde[0]}</h4> finišavo <h4>{i + 1}</h4>
                       </li>
-                      <li>Finišavimo laikas : {elm.laikas.slice(0, 7)}</li>
+                      <li>
+                        <p>Finišavimo laikas :</p>
+                        <p>{elm.laikas.slice(0, 7)}</p>
+                      </li>
                     </Paper>
                   </ul>
                 ))}
@@ -150,10 +156,13 @@ const RezultataiGalRodymas = (props) => {
                       )}
 
                       <li>
-                        <h3>{elm.vardas}</h3>
-                        <h3> {elm.pavarde[0]}</h3> finišavo <h3>{i + 1}</h3>
+                        <h4>{elm.vardas}</h4>
+                        <h4> {elm.pavarde[0]}</h4> finišavo <h4>{i + 1}</h4>
                       </li>
-                      <li>Finišavimo laikas : {elm.laikas.slice(0, 7)}</li>
+                      <li>
+                        <p>Finišavimo laikas :</p>
+                        <p>{elm.laikas.slice(0, 7)}</p>
+                      </li>
                     </Paper>
                   </ul>
                 ))}

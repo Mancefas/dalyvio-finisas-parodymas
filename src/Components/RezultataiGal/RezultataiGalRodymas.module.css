@@ -32,9 +32,10 @@
 
 .name {
   padding: 1rem;
+  justify-content: center;
 }
 
-.name h3 {
+.name h4 {
   font-family: "Nunito", sans-serif;
   font-weight: 900;
 }
@@ -51,7 +52,7 @@
 
 .kategorija {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 1rem;
