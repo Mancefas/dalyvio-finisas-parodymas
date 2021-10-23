@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../RezultataiGal/RezultataiGalRodymas.module.css";
-import { Grid, Paper, Avatar, Badge, Tabs, Tab } from "@mui/material";
+import { Grid, Paper, Tabs, Tab } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
@@ -71,8 +71,8 @@ const RezultataiGalRodymas = (props) => {
           <Grid className={classes.gridInnerItem} item xs={4}>
             <div>
               <div className={classes.kategorija}>
-                <p>Kategorija </p>
-                <Avatar variant="square">{distM[0].kategorija}</Avatar>{" "}
+                <h5>Kategorija </h5>
+                <h3>{distM[0].kategorija}</h3>{" "}
               </div>
 
               <div className={classes.item}>
@@ -105,16 +105,8 @@ const RezultataiGalRodymas = (props) => {
             <div>
               {distM40.length > 0 && (
                 <div className={classes.kategorija}>
-                  <p>Kategorija </p>
-                  <Badge
-                    badgeContent={distM40[0].kategorija.slice(1, 3)}
-                    color="primary"
-                  >
-                    <Avatar variant="square">
-                      {" "}
-                      {distM40[0].kategorija[0]}{" "}
-                    </Avatar>{" "}
-                  </Badge>
+                  <h5>Kategorija </h5>
+                  <h3>{distM40[0].kategorija}</h3>{" "}
                 </div>
               )}
               <div className={classes.item}>
@@ -143,8 +135,8 @@ const RezultataiGalRodymas = (props) => {
             <div>
               {distW.length > 0 && (
                 <div className={classes.kategorija}>
-                  <p>Kategorija </p>
-                  <Avatar>{distW[0].kategorija}</Avatar>{" "}
+                  <h5>Kategorija </h5>
+                  <h3> {distW[0].kategorija}</h3>{" "}
                 </div>
               )}
               <div className={classes.item}>
