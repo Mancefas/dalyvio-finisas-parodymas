@@ -16,12 +16,14 @@ const RezultataiPrel = () => {
       );
       const data = await response.json();
       const dataGauta = [];
+      console.log(dataGauta);
 
       for (const key in data) {
         dataGauta.push({
           id: key,
-          atvaziavo: data[key].atvaziavo,
-          laikas: data[key].laikas,
+          startas: data[key].startoLaikas,
+          finisas: data[key].finisoLaikas,
+          laikas: data[key].vaziavimoLaikas,
           dalyvis: data[key].dalyvis,
         });
       }
@@ -40,7 +42,7 @@ const RezultataiPrel = () => {
       {error && <p className={"errMsg"}>Error : {error}</p>}
 
       <Container className={"btn"} maxWidth="xs">
-        <Button onClick={rezultataiDataHandler} variant="outlined" disabled>
+        <Button onClick={rezultataiDataHandler} variant="outlined">
           Rezultatai-preliminarūs
         </Button>
       </Container>
@@ -52,7 +54,9 @@ const RezultataiPrel = () => {
                 <Paper elevation={4}>
                   <h2>Dalyvio numeris : {rezultatas.dalyvis}</h2>
                   <h3>Atvažiavo į finišą : {indx + 1}</h3>
-                  <p>Finišavimo laikas : {rezultatas.laikas}</p>
+                  <h4>Starto laikas - {rezultatas.startas}</h4>
+                  <h4>Finišavimo laikas - {rezultatas.finisas}</h4>
+                  <h4>Rezultatas - {rezultatas.laikas}</h4>
                 </Paper>
               </li>
             ))}
