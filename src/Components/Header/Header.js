@@ -7,7 +7,7 @@ import { faBiking, faBicycle } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <header>
-      <Container maxWidth="md">
+      <Container maxWidth="md" className={classes.cont}>
         <div className={classes.header}>
           <FontAwesomeIcon
             icon={faBiking}
