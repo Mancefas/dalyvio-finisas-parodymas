@@ -7,7 +7,7 @@ import { faBiking, faBicycle } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <header>
-      <Container maxWidth="md">
+      <Container maxWidth="md" className={classes.cont}>
         <div className={classes.header}>
           <FontAwesomeIcon
             icon={faBiking}
@@ -21,7 +21,7 @@ const Header = () => {
             className={classes.bike2}
           />
         </div>
-        <h3 className={classes.giraText}>KAZLŲ RŪDOS GIRIA</h3>
+        <h3 className={classes.giriaText}>KAZLŲ RŪDOS GIRIA</h3>
         <h4 className={classes.kmText}>80KM 130KM</h4>
       </Container>
     </header>
