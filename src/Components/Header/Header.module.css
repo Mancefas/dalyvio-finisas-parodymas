@@ -1,0 +1,20 @@
+.header {
+  height: fit-content;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.bike1 {
+  color: #febb15;
+}
+
+.bike2 {
+  color: #f06c24;
+}
+
+.giraText {
+  color: #826754;
+}
