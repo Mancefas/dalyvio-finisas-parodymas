@@ -1,14 +1,20 @@
 import "./App.css";
-import Header from "./Components/Header/Header";
-import RezultataiGal from "./Components/RezultataiGal/RezultataiGal";
-import RezultataiPrel from "./Components/RezultataiPrel";
+import React, { lazy, Suspense } from "react";
+
+const Header = lazy(() => import("./Components/Header/Header"));
+const RezultataiPrel = lazy(() => import("./Components/RezultataiPrel"));
+const RezultataiGal = lazy(() =>
+  import("./Components/RezultataiGal/RezultataiGal")
+);
 
 function App() {
   return (
     <>
-      <Header />
-      <RezultataiPrel />
-      <RezultataiGal />
+      <Suspense fallback={<h2>Kraunama…</h2>}>
+        <Header />
+        <RezultataiPrel />
+        <RezultataiGal />
+      </Suspense>
     </>
   );
 }
