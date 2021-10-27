@@ -5,6 +5,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 .bike1 {
@@ -13,8 +15,14 @@
 
 .bike2 {
   color: #f06c24;
+  text-align: center;
 }
 
-.giraText {
+.giriaText {
   color: #826754;
+  text-align: center;
+}
+
+.kmText {
+  text-align: center;
 }
