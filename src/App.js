@@ -10,7 +10,7 @@ const RezultataiGal = lazy(() =>
 function App() {
   return (
     <>
-      <Suspense fallback={<h2>Kraunama…</h2>}>
+      <Suspense fallback={<h2>Įkeliama...</h2>}>
         <Header />
         <RezultataiPrel />
         <RezultataiGal />
