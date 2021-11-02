@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { lazy, Suspense } from "react";
+import RezultataiApdoroti from "./Components/Rezultatai-is-suvestu/RezultataiApdoroti";
 
 const Header = lazy(() => import("./Components/Header/Header"));
 const RezultataiPrel = lazy(() =>
@@ -17,6 +18,7 @@ function App() {
         <RezultataiPrel />
         <RezultataiGal />
       </Suspense>
+      <RezultataiApdoroti />
     </>
   );
 }
