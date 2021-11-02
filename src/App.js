@@ -2,7 +2,9 @@ import "./App.css";
 import React, { lazy, Suspense } from "react";
 
 const Header = lazy(() => import("./Components/Header/Header"));
-const RezultataiPrel = lazy(() => import("./Components/RezultataiPrel"));
+const RezultataiPrel = lazy(() =>
+  import("./Components/Rezultatai-preliminarus/RezultataiPrel")
+);
 const RezultataiGal = lazy(() =>
   import("./Components/RezultataiGal/RezultataiGal")
 );
