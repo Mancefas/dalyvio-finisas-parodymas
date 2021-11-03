@@ -23,9 +23,10 @@ const RezultataiApdoroti = () => {
       dalyviuArray.push({
         distancija: dataDalyviu[key].dist,
         dviratis: dataDalyviu[key].dviratis,
-        grupe: dataDalyviu[key].grupe,
-        dalyvioNr: dataDalyviu[key].startoNr,
-        dalyvioVardas: dataDalyviu[key].vardas,
+        kategorija: dataDalyviu[key].grupe,
+        numeris: dataDalyviu[key].startoNr,
+        vardas: dataDalyviu[key].vardas[0],
+        pavarde: dataDalyviu[key].vardas[1],
       });
     }
 
@@ -37,68 +38,38 @@ const RezultataiApdoroti = () => {
         startas: rezultatuData[key].startoLaikas,
         finisas: rezultatuData[key].finisoLaikas,
         laikas: rezultatuData[key].vaziavimoLaikas,
-        dalyvioNr: +rezultatuData[key].dalyvis,
+        numeris: +rezultatuData[key].dalyvis,
       });
     }
 
     rezultatuArray.map(
       (_, index) =>
         (rezultatuArray[index].daugiauInfo = dalyviuArray.find(
-          (elm) => elm.dalyvioNr === rezultatuArray[index].dalyvioNr
+          (elm) => elm.numeris === rezultatuArray[index].numeris
         ))
     );
 
-    setRezultataiSuInfo(rezultatuArray);
+    const rezultatuArrayPapildyta = rezultatuArray.map((element) => {
+      const object = element;
+      const nestedObject = element.daugiauInfo;
+      const newOBject = Object.assign(object, nestedObject);
+      return newOBject;
+    });
+
+    setRezultataiSuInfo(rezultatuArrayPapildyta);
     setShow(!show);
   };
-
-  const showData = (
-    <Container className={"container"}>
-      <ul>
-        {rezultataiSuInfo.length !== 0 &&
-          rezultataiSuInfo.map((rezultatas) => (
-            <li className={"li"} key={rezultatas.laikas}>
-              <Paper elevation={4}>
-                <h2>Dalyvio numeris : {rezultatas.dalyvioNr}</h2>
-                <h4>
-                  Vardas :
-                  {rezultatas.daugiauInfo !== undefined &&
-                    rezultatas.daugiauInfo.dalyvioVardas[0]}
-                </h4>
-                <h4>
-                  Grupė :
-                  {rezultatas.daugiauInfo !== undefined &&
-                    rezultatas.daugiauInfo.grupe}
-                </h4>
-                <h4>Rezultatas : {rezultatas.laikas}</h4>
-                <h4>
-                  Distancija :
-                  {rezultatas.daugiauInfo !== undefined &&
-                    rezultatas.daugiauInfo.distancija}
-                </h4>
-                <h4>
-                  Dviratis:
-                  {rezultatas.daugiauInfo !== undefined &&
-                    rezultatas.daugiauInfo.dviratis}
-                </h4>
-              </Paper>
-            </li>
-          ))}
-      </ul>
-    </Container>
-  );
 
   return (
     <div>
       <Button
-        // disabled={true}
+        disabled={true}
         onClick={dataFromAPIHandler}
         variant="contained"
         sx={{ marginTop: "2rem" }}
       >
         Rezultatai finišo{" "}
       </Button>
-      <div>{show && showData}</div>
     </div>
   );
 };

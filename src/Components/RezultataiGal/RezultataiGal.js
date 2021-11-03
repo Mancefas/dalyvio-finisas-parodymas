@@ -25,6 +25,8 @@ const RezultataiGal = () => {
     setLoad(false);
   };
 
+  console.log(galutiniaiRez);
+
   return (
     <Container className={classes.container}>
       {error && <p className={classes.errMsg}>Error : {error}</p>}
