@@ -24,8 +24,6 @@ const RezultataiApdoroti = () => {
       const dataDalyviu = data[1]["-MmHYkdy40vSUsvXkdwP"];
       const dalyviuArray = [];
 
-      console.log(dataDalyviu);
-
       for (const key in dataDalyviu) {
         dalyviuArray.push({
           distancija: dataDalyviu[key].dist,
@@ -48,7 +46,6 @@ const RezultataiApdoroti = () => {
           numeris: +rezultatuData[key].dalyvis,
         });
       }
-      console.log(rezultatuData);
 
       rezultatuArray.map(
         (_, index) =>
@@ -81,7 +78,7 @@ const RezultataiApdoroti = () => {
         </Container>
       )}
       <Button
-        disabled={true}
+        // disabled={true}
         onClick={dataFromAPIHandler}
         variant="contained"
         sx={{ marginTop: "2rem" }}

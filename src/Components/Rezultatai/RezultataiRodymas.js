@@ -24,20 +24,44 @@ const RezultataiGalRodymas = (props) => {
     const M = galutiniaiRez.filter((word) => {
       return word.distancija === +distClicked && word.kategorija === "M";
     });
+    const uniqueM = [
+      ...M.reduce((accumulator, current) => {
+        if (!accumulator.some((x) => x.numeris === current.numeris)) {
+          accumulator.push(current);
+        }
+        return accumulator;
+      }, []),
+    ];
 
-    setDistM(M);
+    setDistM(uniqueM);
 
     const M40 = galutiniaiRez.filter((word) => {
       return word.distancija === +distClicked && word.kategorija === "M40";
     });
+    const uniqueM40 = [
+      ...M40.reduce((accumulator, current) => {
+        if (!accumulator.some((x) => x.numeris === current.numeris)) {
+          accumulator.push(current);
+        }
+        return accumulator;
+      }, []),
+    ];
 
-    setDistM40(M40);
+    setDistM40(uniqueM40);
 
     const W = galutiniaiRez.filter((word) => {
       return word.distancija === +distClicked && word.kategorija === "W";
     });
+    const uniqueW = [
+      ...W.reduce((accumulator, current) => {
+        if (!accumulator.some((x) => x.numeris === current.numeris)) {
+          accumulator.push(current);
+        }
+        return accumulator;
+      }, []),
+    ];
 
-    setDistW(W);
+    setDistW(uniqueW);
     setShowRez(true);
   };
 
