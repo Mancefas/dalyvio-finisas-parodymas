@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Paper, Container, Button } from "@mui/material";
+import { Button } from "@mui/material";
+import RezultataiRodymas from "../RezultataiRodymas";
 
 const RezultataiApdoroti = () => {
   const [rezultataiSuInfo, setRezultataiSuInfo] = useState([]);
@@ -63,13 +64,14 @@ const RezultataiApdoroti = () => {
   return (
     <div>
       <Button
-        disabled={true}
+        // disabled={true}
         onClick={dataFromAPIHandler}
         variant="contained"
         sx={{ marginTop: "2rem" }}
       >
         Rezultatai finišo{" "}
       </Button>
+      {show && <RezultataiRodymas galutiniaiRez={rezultataiSuInfo} />}
     </div>
   );
 };

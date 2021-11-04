@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "../RezultataiGal/RezultataiGalRodymas.module.css";
+import classes from "../Rezultatai/RezultataiRodymas.module.css";
 import { Grid, Paper, Tabs, Tab } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
@@ -70,10 +70,12 @@ const RezultataiGalRodymas = (props) => {
         <Grid container spacing={2}>
           <Grid className={classes.gridInnerItem} item xs={4}>
             <div>
-              <div className={classes.kategorija}>
-                <h5>Kategorija </h5>
-                <h3>{distM[0].kategorija}</h3>{" "}
-              </div>
+              {distM.length > 0 && (
+                <div className={classes.kategorija}>
+                  <h5>Kategorija </h5>
+                  <h3>{distM[0].kategorija}</h3>{" "}
+                </div>
+              )}
 
               <div className={classes.item}>
                 {distM.map((elm, i) => (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./RezultataiGal.module.css";
 import { Button, Container, LinearProgress } from "@mui/material";
-import RezultataiGalRodymas from "../RezultataiGal/RezultataiGalRodymas";
+import RezultataiRodymas from "../RezultataiRodymas";
 
 const RezultataiGal = () => {
   const [load, setLoad] = useState(false);
@@ -25,8 +25,6 @@ const RezultataiGal = () => {
     setLoad(false);
   };
 
-  console.log(galutiniaiRez);
-
   return (
     <Container className={classes.container}>
       {error && <p className={classes.errMsg}>Error : {error}</p>}
@@ -36,7 +34,7 @@ const RezultataiGal = () => {
           Galutiniai rezultatai
         </Button>
       </Container>
-      {!error && show && <RezultataiGalRodymas galutiniaiRez={galutiniaiRez} />}
+      {!error && show && <RezultataiRodymas galutiniaiRez={galutiniaiRez} />}
     </Container>
   );
 };

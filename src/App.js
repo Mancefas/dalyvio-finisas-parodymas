@@ -1,13 +1,12 @@
 import "./App.css";
 import React, { lazy, Suspense } from "react";
-import RezultataiApdoroti from "./Components/Rezultatai-is-suvestu/RezultataiApdoroti";
 
 const Header = lazy(() => import("./Components/Header/Header"));
 const RezultataiPrel = lazy(() =>
-  import("./Components/Rezultatai-preliminarus/RezultataiPrel")
+  import("./Components/Rezultatai/Rezultatai-preliminarus/RezultataiPrel")
 );
-const RezultataiGal = lazy(() =>
-  import("./Components/RezultataiGal/RezultataiGal")
+const RezultataiApdoroti = lazy(() =>
+  import("./Components/Rezultatai/Rezultatai-is-suvestu/RezultataiApdoroti")
 );
 
 function App() {
@@ -16,9 +15,8 @@ function App() {
       <Suspense fallback={<h2>Įkeliama...</h2>}>
         <Header />
         <RezultataiPrel />
-        <RezultataiGal />
+        <RezultataiApdoroti />
       </Suspense>
-      <RezultataiApdoroti />
     </>
   );
 }

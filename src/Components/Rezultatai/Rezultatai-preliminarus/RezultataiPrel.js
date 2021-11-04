@@ -16,7 +16,6 @@ const RezultataiPrel = () => {
       );
       const data = await response.json();
       const dataGauta = [];
-      console.log(dataGauta);
 
       for (const key in data) {
         dataGauta.push({
