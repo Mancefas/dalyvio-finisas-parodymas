@@ -8,6 +8,9 @@ const RezultataiPrel = lazy(() =>
 const RezultataiApdoroti = lazy(() =>
   import("./Components/Rezultatai/Rezultatai-is-suvestu/RezultataiApdoroti")
 );
+const RezultataiGal = lazy(() =>
+  import("./Components/Rezultatai/Rezultatai-is-kitu/RezultataiGal")
+);
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
         <Header />
         <RezultataiPrel />
         <RezultataiApdoroti />
+        <RezultataiGal />
       </Suspense>
     </>
   );
