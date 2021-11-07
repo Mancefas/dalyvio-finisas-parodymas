@@ -121,7 +121,7 @@ const RezultataiGalRodymas = (props) => {
                       </li>
                       <li>
                         <p>Finišavimo laikas :</p>
-                        <p>{elm.laikas.slice(0, 7)}</p>
+                        <p>{elm.laikas}</p>
                       </li>
                     </Paper>
                   </ul>
@@ -154,7 +154,7 @@ const RezultataiGalRodymas = (props) => {
                       </li>
                       <li>
                         <p>Finišavimo laikas :</p>
-                        <p>{elm.laikas.slice(0, 7)}</p>
+                        <p>{elm.laikas}</p>
                       </li>
                     </Paper>
                   </ul>
@@ -187,7 +187,7 @@ const RezultataiGalRodymas = (props) => {
                       </li>
                       <li>
                         <p>Finišavimo laikas :</p>
-                        <p>{elm.laikas.slice(0, 7)}</p>
+                        <p>{elm.laikas}</p>
                       </li>
                     </Paper>
                   </ul>
