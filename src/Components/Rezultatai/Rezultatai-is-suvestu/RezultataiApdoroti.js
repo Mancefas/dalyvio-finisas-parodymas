@@ -24,6 +24,8 @@ const RezultataiApdoroti = () => {
       const dataDalyviu = data[1];
       const dalyviuArray = [];
 
+      // console.log(dataDalyviu);
+
       for (const key in dataDalyviu) {
         dalyviuArray.push({
           distancija: dataDalyviu[key].dist,
@@ -37,6 +39,9 @@ const RezultataiApdoroti = () => {
 
       const rezultatuData = data[0];
       const rezultatuArray = [];
+
+      console.log(rezultatuData);
+
       for (const key in rezultatuData) {
         rezultatuArray.push({
           id: key,
@@ -63,6 +68,7 @@ const RezultataiApdoroti = () => {
       setRezultataiSuInfo(rezultatuArrayPapildyta);
     } catch (error) {
       setError(error.message);
+      console.log(error);
     }
 
     setShow(!show);
