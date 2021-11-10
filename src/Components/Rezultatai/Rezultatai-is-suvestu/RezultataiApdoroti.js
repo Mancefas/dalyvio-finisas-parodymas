@@ -21,7 +21,7 @@ const RezultataiApdoroti = () => {
       ]);
       const data = await Promise.all(response.map((r) => r.json()));
       //Cia reikia pakeisti -MmHYkdy40vSUsvXkdwP i nauja id jei kitas dalyviu sarasas
-      const dataDalyviu = data[1]["-MmHYkdy40vSUsvXkdwP"];
+      const dataDalyviu = data[1];
       const dalyviuArray = [];
 
       for (const key in dataDalyviu) {
