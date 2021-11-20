@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./RezultataiPrel.css";
 import { Paper, Container, Button, LinearProgress } from "@mui/material";
 
+import config from "../../../config.json";
+
 const RezultataiPrel = () => {
   const [rezultatai, setRezultatai] = useState([]);
   const [loading, setLoading] = useState();
@@ -11,9 +13,7 @@ const RezultataiPrel = () => {
   const rezultataiDataHandler = async () => {
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://gif-rezultatai-b73a6-default-rtdb.europe-west1.firebasedatabase.app/rez.json"
-      );
+      const response = await fetch(config.API_URL_rezultatai);
       const data = await response.json();
       const dataGauta = [];
 

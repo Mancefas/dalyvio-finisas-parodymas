@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Container, LinearProgress } from "@mui/material";
 import RezultataiRodymas from "../RezultataiRodymas";
 
+import config from "../../../config.json";
+
 const RezultataiApdoroti = () => {
   const [loading, setLoading] = useState();
   const [error, setError] = useState(null);
@@ -12,12 +14,8 @@ const RezultataiApdoroti = () => {
     setLoading(true);
     try {
       const response = await Promise.all([
-        fetch(
-          "https://gif-rezultatai-b73a6-default-rtdb.europe-west1.firebasedatabase.app/rez.json"
-        ),
-        fetch(
-          "https://gif-rezultatai-b73a6-default-rtdb.europe-west1.firebasedatabase.app/dal.json"
-        ),
+        fetch(config.API_URL_rezultatai),
+        fetch(config.API_URL_dalyviai),
       ]);
       const data = await Promise.all(response.map((r) => r.json()));
       //Cia reikia pakeisti -MmHYkdy40vSUsvXkdwP i nauja id jei kitas dalyviu sarasas
