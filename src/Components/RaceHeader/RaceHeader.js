@@ -1,4 +1,4 @@
-import classes from "./Header.module.css";
+import classes from "./RaceHeader.module.css";
 import React from "react";
 import { Container } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

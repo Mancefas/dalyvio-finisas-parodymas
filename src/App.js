@@ -1,22 +1,33 @@
 import "./App.css";
 import React, { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBiking } from "@fortawesome/free-solid-svg-icons";
 
-const Header = lazy(() => import("./Components/Header/Header"));
-const RezultataiPrel = lazy(() =>
-  import("./Components/Rezultatai/Rezultatai-preliminarus/RezultataiPrel")
-);
-const RezultataiApdoroti = lazy(() =>
-  import("./Components/Rezultatai/Rezultatai-is-suvestu/RezultataiApdoroti")
-);
+import LandingPage from "./Pages/LandingPage";
+
+const GifKazluRuda = lazy(() => import("./Pages/GIF-Kazlu-Ruda"));
 
 function App() {
   return (
     <>
-      <Suspense fallback={<h2>Įkeliama...</h2>}>
-        <Header />
-        <RezultataiPrel />
-        <RezultataiApdoroti />
-      </Suspense>
+      <Routes>
+        <Route
+          path="/gif-kazlu-ruda"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <FontAwesomeIcon icon={faBiking} size={"2x"} />
+                </div>
+              }
+            >
+              <GifKazluRuda />
+            </Suspense>
+          }
+        />
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
     </>
   );
 }
