@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, LinearProgress } from "@mui/material";
+import { Button, Container, LinearProgress, Alert } from "@mui/material";
 import RezultataiRodymas from "../RezultataiRodymas";
 
 import config from "../../../config.json";
@@ -9,20 +9,27 @@ const RezultataiApdoroti = () => {
   const [error, setError] = useState(null);
   const [rezultataiSuInfo, setRezultataiSuInfo] = useState([]);
   const [show, setShow] = useState(false);
+  const [noRacers, setNoRacers] = useState(false);
+  const [noFinishTime, setNoFinishTime] = useState(false);
 
   const dataFromAPIHandler = async () => {
     setLoading(true);
+    setNoRacers(false);
+    setNoFinishTime(false);
     try {
       const response = await Promise.all([
         fetch(config.API_URL_rezultatai),
         fetch(config.API_URL_dalyviai),
       ]);
       const data = await Promise.all(response.map((r) => r.json()));
-      //Cia reikia pakeisti -MmHYkdy40vSUsvXkdwP i nauja id jei kitas dalyviu sarasas
       const dataDalyviu = data[1];
       const dalyviuArray = [];
 
-      // console.log(dataDalyviu);
+      if (dataDalyviu === null) {
+        setNoRacers(true);
+        setLoading(false);
+        return;
+      }
 
       for (const key in dataDalyviu) {
         dalyviuArray.push({
@@ -37,6 +44,12 @@ const RezultataiApdoroti = () => {
 
       const rezultatuData = data[0];
       const rezultatuArray = [];
+
+      if (rezultatuData === null) {
+        setNoFinishTime(true);
+        setLoading(false);
+        return;
+      }
 
       console.log(rezultatuData);
 
@@ -81,6 +94,17 @@ const RezultataiApdoroti = () => {
           <LinearProgress />{" "}
         </Container>
       )}
+      {noRacers && (
+        <Container maxWidth="xs" sx={{ marginTop: "1rem" }}>
+          <Alert severity="info">Nėra suvestų dalyvių!</Alert>
+        </Container>
+      )}
+      {noFinishTime && (
+        <Container maxWidth="xs" sx={{ marginTop: "1rem" }}>
+          <Alert severity="info">Nėra finišavusių!</Alert>
+        </Container>
+      )}
+
       <Button
         // disabled={true}
         onClick={dataFromAPIHandler}

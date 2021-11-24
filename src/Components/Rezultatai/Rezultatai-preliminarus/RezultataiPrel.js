@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RezultataiPrel.css";
-import { Paper, Container, Button, LinearProgress } from "@mui/material";
+import { Paper, Container, Button, LinearProgress, Alert } from "@mui/material";
 
 import config from "../../../config.json";
 
@@ -9,13 +9,21 @@ const RezultataiPrel = () => {
   const [loading, setLoading] = useState();
   const [show, setShow] = useState(false);
   const [error, setError] = useState(null);
+  const [noResults, setNoResults] = useState(false);
 
   const rezultataiDataHandler = async () => {
     setLoading(true);
+    setNoResults(false);
     try {
       const response = await fetch(config.API_URL_rezultatai);
       const data = await response.json();
       const dataGauta = [];
+
+      if (data === null) {
+        setNoResults(true);
+        setLoading(false);
+        return;
+      }
 
       for (const key in data) {
         dataGauta.push({
@@ -45,6 +53,11 @@ const RezultataiPrel = () => {
           Rezultatai-preliminarūs
         </Button>
       </Container>
+      {noResults && (
+        <Container maxWidth="xs" sx={{ marginTop: "1rem" }}>
+          <Alert severity="info">Dar nėra rezultatų!</Alert>
+        </Container>
+      )}
       {show && (
         <Container className={"container"}>
           <ul className={"ul"}>
