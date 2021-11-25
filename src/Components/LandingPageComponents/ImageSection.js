@@ -23,7 +23,7 @@ const ImageSection = () => {
           height: "10rem",
         }}
       >
-        <img src={phone} height="100%" width="auto" />
+        <img src={phone} alt="" height="100%" width="auto" />
       </Box>
     </Box>
   );

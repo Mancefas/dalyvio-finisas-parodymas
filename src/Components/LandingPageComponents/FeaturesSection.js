@@ -17,8 +17,9 @@ const FeaturesSection = () => {
   return (
     <Box
       sx={{
-        height: "50vh",
-        width: "100vw",
+        minHeight: "65vh",
+        height: "fitContent",
+        width: "fitContent",
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
@@ -39,11 +40,11 @@ const FeaturesSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Finišo laiko fiksavimas telefonu
+                Finišo laiko fiksavimas be daviklių
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Laiko finišavimui tereikia telefono arba planšetinio kompiuterio
-                ir laiku paspausti finišavimo mygtuką.
+                ir paspausti finišavimo mygtuką.
               </Typography>
             </CardContent>
           </Card>
