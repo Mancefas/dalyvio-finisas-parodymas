@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -8,14 +8,28 @@ import {
   Grid,
   Typography,
   SvgIcon,
+  Container,
+  Paper,
 } from "@mui/material";
-import PhonelinkIcon from "@mui/icons-material/Phonelink";
-import AttributionIcon from "@mui/icons-material/Attribution";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import SportsScoreIcon from "@mui/icons-material/SportsScore";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
+
+import LooksOneIcon from "@mui/icons-material/LooksOne";
+import LooksTwoIcon from "@mui/icons-material/LooksTwo";
+import Looks3Icon from "@mui/icons-material/Looks3";
+import Looks4Icon from "@mui/icons-material/Looks4";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 const HowItWorksSection = () => {
+  const [secondsPassed, setSecondsPassed] = useState();
+  const [showContentAfterPress, setShowContentArterPress] = useState(false);
+
+  const dateWhenRenderComponent = Date.now();
+
+  const randomClickHandler = () => {
+    const dateFromRenderToClick = Date.now() - dateWhenRenderComponent;
+    setSecondsPassed(Math.floor(dateFromRenderToClick / 1000));
+    setShowContentArterPress(true);
+  };
+
   return (
     <Box sx={{ minHeight: "80vh", marginBottom: "3rem" }}>
       <Typography
@@ -31,7 +45,7 @@ const HowItWorksSection = () => {
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
-                <PhonelinkIcon />
+                <LooksOneIcon />
               </SvgIcon>
             </CardMedia>
             <CardContent>
@@ -52,10 +66,7 @@ const HowItWorksSection = () => {
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
-                <AttributionIcon />
-              </SvgIcon>
-              <SvgIcon fontSize="large" color="info">
-                <ContactMailIcon />
+                <LooksTwoIcon />
               </SvgIcon>
             </CardMedia>
             <CardContent>
@@ -75,7 +86,7 @@ const HowItWorksSection = () => {
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
-                <SportsScoreIcon />
+                <Looks3Icon />
               </SvgIcon>
             </CardMedia>
             <CardContent>
@@ -87,9 +98,31 @@ const HowItWorksSection = () => {
             <CardContent>
               <Typography variant="body2" color="text.secondary">
                 Įvedamas dalyvio numeris ir tereikia spustelti{" "}
-                <Button variant="contained" size="small">
+                <Button
+                  onClick={randomClickHandler}
+                  variant="contained"
+                  size="small"
+                >
                   Finišavo
                 </Button>
+                {/* Some box with text after Button press */}
+                {showContentAfterPress && (
+                  <Container maxWidth="sm" sx={{ padding: "0.5rem" }}>
+                    <Paper
+                      variant="outlined"
+                      elevation={3}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Typography variant="subtitle2">
+                        Sveikinam finišo laikas {secondsPassed} sek.
+                      </Typography>
+                      <EmojiEventsIcon color="primary" />
+                    </Paper>
+                  </Container>
+                )}
               </Typography>
             </CardContent>
           </Card>
@@ -99,7 +132,7 @@ const HowItWorksSection = () => {
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
-                <BarChartIcon />
+                <Looks4Icon />
               </SvgIcon>
             </CardMedia>
             <CardContent>
