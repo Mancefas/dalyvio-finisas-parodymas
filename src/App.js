@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBiking } from "@fortawesome/free-solid-svg-icons";
 
+import Header from "./Components/Header/Header";
 import LandingPage from "./Pages/LandingPage";
 
 const GifKazluRuda = lazy(() => import("./Pages/GIF-Kazlu-Ruda"));
@@ -11,6 +12,7 @@ const GifKazluRuda = lazy(() => import("./Pages/GIF-Kazlu-Ruda"));
 function App() {
   return (
     <>
+      <Header />
       <Routes>
         <Route
           path="/gif-kazlu-ruda"
