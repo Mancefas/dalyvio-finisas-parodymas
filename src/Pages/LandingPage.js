@@ -10,15 +10,6 @@ const LandingPage = () => {
   return (
     <>
       <ImageSection />
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/gif-kazlu-ruda">GIF Kazlų Rūda</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
       <FeaturesSection />
       <HowItWorksSection />
     </>

@@ -7,8 +7,11 @@ const ImageSection = () => {
   return (
     <Box
       sx={{
-        height: "90vh",
-        width: "100%",
+        height: "80vh",
+        width: "90vw",
+        margin: "auto",
+        marginBottom: "2rem",
+        borderRadius: "7px",
         backgroundImage: `url(${bgImg})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -20,7 +23,7 @@ const ImageSection = () => {
     >
       <Box
         sx={{
-          height: "10rem",
+          height: "18vh",
         }}
       >
         <img src={phone} alt="" height="100%" width="auto" />
