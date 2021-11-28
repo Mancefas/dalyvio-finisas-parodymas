@@ -18,7 +18,7 @@ const Footer = () => {
         borderColor: "primary.main",
       }}
     >
-      <CopyrightIcon style={{ color: "#1976d2" }} />
+      <CopyrightIcon color="primary" />
       <p>{yearNow}</p>
       <p>Visos teisės saugomos</p>
     </Container>

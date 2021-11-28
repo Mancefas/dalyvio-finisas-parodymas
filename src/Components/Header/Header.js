@@ -1,10 +1,8 @@
 import React from "react";
-import { Container, Box, Button } from "@mui/material";
+import { Container, Box, Button, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFlagCheckered,
-  faMobileAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 
 import { Link } from "react-router-dom";
 
@@ -32,7 +30,6 @@ const Header = () => {
       >
         <Link
           style={{
-            color: "green",
             display: "flex",
             alignItems: "center",
             gap: "5px",
@@ -40,10 +37,8 @@ const Header = () => {
           to="/"
         >
           <FontAwesomeIcon icon={faFlagCheckered} size={"2x"} />
-          <FontAwesomeIcon
-            style={{ color: "#1976d2", fontSize: "1.5rem" }}
-            icon={faMobileAlt}
-          />
+
+          <PhoneAndroidIcon color="primary" />
         </Link>
       </Box>
 
@@ -54,12 +49,14 @@ const Header = () => {
               textDecoration: "none",
               textTransform: "uppercase",
               fontWeight: "bold",
-              color: "#1976d2",
+              color: "#primary",
             }}
             // className={(navData) => (navData.isActive ? classes.link : "")}
             to="/gif-kazlu-ruda"
           >
-            Vykstančios varžybos
+            <Typography variant="button" color="primary">
+              Varžybos
+            </Typography>
           </Link>
         </Box>
       </Box>
