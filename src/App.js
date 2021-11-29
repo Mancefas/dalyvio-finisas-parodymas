@@ -7,6 +7,7 @@ import { faBiking } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Pages/LandingPage";
+import NoPage from "./Pages/NoPage";
 
 const GifKazluRuda = lazy(() => import("./Pages/GIF-Kazlu-Ruda"));
 
@@ -30,6 +31,7 @@ function App() {
           }
         />
         <Route path="/" element={<LandingPage />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
     </>
