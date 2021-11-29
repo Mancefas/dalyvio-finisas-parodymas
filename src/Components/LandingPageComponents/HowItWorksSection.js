@@ -17,6 +17,8 @@ import LooksTwoIcon from "@mui/icons-material/LooksTwo";
 import Looks3Icon from "@mui/icons-material/Looks3";
 import Looks4Icon from "@mui/icons-material/Looks4";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
+import TabletAndroidTwoToneIcon from "@mui/icons-material/TabletAndroidTwoTone";
 
 const HowItWorksSection = () => {
   const [secondsPassed, setSecondsPassed] = useState();
@@ -40,6 +42,7 @@ const HowItWorksSection = () => {
       >
         Kaip tai veikia ?{" "}
       </Typography>
+
       <Grid container spacing={8} sx={{ justifyContent: "center" }}>
         <Grid item xs={10}>
           <Card>
@@ -96,6 +99,15 @@ const HowItWorksSection = () => {
               </Typography>
             </CardContent>
             <CardContent>
+              <Box>
+                <SvgIcon fontSize="medium">
+                  <PhoneAndroidTwoToneIcon />
+                </SvgIcon>
+                <SvgIcon fontSize="large">
+                  <TabletAndroidTwoToneIcon />
+                </SvgIcon>
+              </Box>
+
               <Typography variant="body2" color="text.secondary">
                 Įvedamas dalyvio numeris ir tereikia spustelti{" "}
                 <Button
