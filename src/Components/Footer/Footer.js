@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "@mui/material";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 
+import Context from "../../store/Context";
+
 const Footer = () => {
+  const context = useContext(Context);
   const dateNow = new Date();
   const yearNow = dateNow.getFullYear();
   return (
@@ -20,7 +23,11 @@ const Footer = () => {
     >
       <CopyrightIcon color="primary" />
       <p>{yearNow}</p>
-      <p>Visos teisės saugomos</p>
+      <p>
+        {context.language === "ENG"
+          ? "All rights reserved"
+          : "Visos teisės saugomos"}
+      </p>
     </Container>
   );
 };
