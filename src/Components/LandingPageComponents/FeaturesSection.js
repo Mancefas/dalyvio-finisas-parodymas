@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Typography,
   Box,
@@ -13,7 +13,10 @@ import InsightsIcon from "@mui/icons-material/Insights";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import BoltIcon from "@mui/icons-material/Bolt";
 
+import Context from "../../store/Context";
+
 const FeaturesSection = () => {
+  const context = useContext(Context);
   return (
     <Box
       sx={{
@@ -40,11 +43,14 @@ const FeaturesSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Finišo laiko fiksavimas be daviklių
+                {context.language === "ENG"
+                  ? "Record finish time with no sensors "
+                  : "Finišo laiko fiksavimas be daviklių"}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Laiko finišavimui tereikia telefono arba planšetinio kompiuterio
-                ir paspausti finišavimo mygtuką.
+                {context.language === "ENG"
+                  ? "To get finish time you only need a smartphone or tablet and to press finish button."
+                  : "Laiko finišavimui tereikia telefono arba planšetinio kompiuterio ir paspausti finišavimo mygtuką."}
               </Typography>
             </CardContent>
           </Card>
@@ -62,11 +68,14 @@ const FeaturesSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Rezultatai gyvai svetainėje
+                {context.language === "ENG"
+                  ? "Results are live on the website"
+                  : "Rezultatai gyvai svetainėje"}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Rezultatai su finišavimo vietomis rodomi gyvai. Taip pat galima
-                fiksuoti tarpinius rezultatus.
+                {context.language === "ENG"
+                  ? "Results with finishing place are shown live. There is a possibility to show intermediate results."
+                  : "Rezultatai su finišavimo vietomis rodomi gyvai. Taip pat galima fiksuoti tarpinius rezultatus."}
               </Typography>
             </CardContent>
           </Card>
@@ -81,11 +90,14 @@ const FeaturesSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Greitas paruošimas varžyboms
+                {context.language === "ENG"
+                  ? "Fast preparation for race"
+                  : "Greitas paruošimas varžyboms"}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Jokių laidų, papildomos elektronikos. Tik žmogus su telefonu
-                rankoje ties finišo linija...
+                {context.language === "ENG"
+                  ? "No wires, additional electronic devices are needed. Only a man with a smartphone at the finish line..."
+                  : "Jokių laidų, papildomos elektronikos. Tik žmogus su telefonu rankoje ties finišo linija..."}
               </Typography>
             </CardContent>
           </Card>
