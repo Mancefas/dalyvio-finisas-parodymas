@@ -7,10 +7,10 @@ const ImageSection = () => {
   return (
     <Box
       sx={{
-        height: "80vh",
-        width: "90vw",
+        height: "70vh",
+        width: "70vw",
         margin: "auto",
-        marginBottom: "2rem",
+        marginBottom: "15vh",
         borderRadius: "7px",
         backgroundImage: `url(${bgImg})`,
         backgroundRepeat: "no-repeat",
