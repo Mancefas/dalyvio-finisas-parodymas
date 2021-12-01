@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -20,7 +20,10 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import TabletAndroidTwoToneIcon from "@mui/icons-material/TabletAndroidTwoTone";
 
+import Context from "../../store/Context";
+
 const HowItWorksSection = () => {
+  const context = useContext(Context);
   const [secondsPassed, setSecondsPassed] = useState();
   const [showContentAfterPress, setShowContentArterPress] = useState(false);
 
@@ -40,7 +43,7 @@ const HowItWorksSection = () => {
         component="div"
         sx={{ margin: "2rem" }}
       >
-        Kaip tai veikia ?{" "}
+        {context.language === "ENG" ? "How it works" : "Kaip tai veikia ?"}{" "}
       </Typography>
 
       <Grid container spacing={8} sx={{ justifyContent: "center" }}>
@@ -53,13 +56,16 @@ const HowItWorksSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Pateikiama informacija apie varžybas : <br /> Starto laikas,
-                Distancijos, Dalyvių grupės
+                {context.language === "ENG"
+                  ? "Information about race is provided.  "
+                  : "Pateikiama informacija apie varžybas"}
               </Typography>
             </CardContent>
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                Tikslinama informacija
+                {context.language === "ENG"
+                  ? "Race start, Distances, Race groups"
+                  : " Starto laikas, Distancijos, Dalyvių grupės"}
               </Typography>
             </CardContent>
           </Card>
@@ -74,12 +80,16 @@ const HowItWorksSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Pildomas dalyvių sąrašas.
+                {context.language === "ENG"
+                  ? "Participant list is filled"
+                  : "Pildomas dalyvių sąrašas."}
               </Typography>
             </CardContent>
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                Dalyvių sąrašas gali būti papildomas vietoje.
+                {context.language === "ENG"
+                  ? "Participant can be added before start of the race."
+                  : "Dalyvių sąrašas gali būti papildomas vietoje."}
               </Typography>
             </CardContent>
           </Card>
@@ -94,8 +104,9 @@ const HowItWorksSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Fiksuojamas dalyvių finišo laikas telefonu/planšete prie finišo
-                linijos
+                {context.language === "ENG"
+                  ? "Record finish time at the finish line with a smartphone or tablet."
+                  : "Fiksuojamas dalyvių finišo laikas telefonu arba planšete prie finišo linijos."}
               </Typography>
             </CardContent>
             <CardContent>
@@ -109,13 +120,15 @@ const HowItWorksSection = () => {
               </Box>
 
               <Typography variant="body2" color="text.secondary">
-                Įvedamas dalyvio numeris ir tereikia spustelti{" "}
+                {context.language === "ENG"
+                  ? "Just fill race number and press  - "
+                  : "Įvedamas dalyvio numeris ir tereikia spustelti - "}
                 <Button
                   onClick={randomClickHandler}
                   variant="contained"
                   size="small"
                 >
-                  Finišavo
+                  {context.language === "ENG" ? "Finished" : "Finišavo"}
                 </Button>
                 {/* Some box with text after Button press */}
                 {showContentAfterPress && (
@@ -129,7 +142,11 @@ const HowItWorksSection = () => {
                       }}
                     >
                       <Typography variant="subtitle2">
-                        Sveikinam finišo laikas {secondsPassed} sek.
+                        {context.language === "ENG"
+                          ? "Congrats!🎉🎉🎉 Your finishing time - "
+                          : "Sveikinam!🎉🎉🎉 Tavo finišavimo laikas - "}
+                        {secondsPassed}{" "}
+                        {context.language === "ENG" ? "sec." : "sek."}
                       </Typography>
                       <EmojiEventsIcon color="primary" />
                     </Paper>
@@ -149,14 +166,16 @@ const HowItWorksSection = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Matome dalyvių finišo laikus ir prizines vietas pagal varžybų
-                grupes ir distancijas.
+                {context.language === "ENG"
+                  ? "Finishing time with finishing place according to race groups and race distances is shown."
+                  : "Matome dalyvių finišo laikus ir prizines vietas pagal grupes ir distancijas."}
               </Typography>
             </CardContent>
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                Apdovanojami laimėtojai ir dalinamės nuotraukomis, bei šventė
-                vyksta toliau.
+                {context.language === "ENG"
+                  ? "Winners are awarded 🏆, photos are taken and it's time for celebration."
+                  : "Apdovanojami laimėtojai 🏆 ir dalinamės nuotraukomis, bei šventė vyksta toliau."}
               </Typography>
             </CardContent>
           </Card>
