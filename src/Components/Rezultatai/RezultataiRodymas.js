@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import classes from "../Rezultatai/RezultataiRodymas.module.css";
 import { Grid, Paper, Tabs, Tab } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
+import Context from "../../store/Context";
+
 const RezultataiGalRodymas = (props) => {
+  const context = useContext(Context);
+
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -96,7 +100,9 @@ const RezultataiGalRodymas = (props) => {
             <div>
               {distM.length > 0 && (
                 <div className={classes.kategorija}>
-                  <h5>Kategorija </h5>
+                  <h5>
+                    {context.language === "ENG" ? "Category" : "Kategorija"}{" "}
+                  </h5>
                   <h3>{distM[0].kategorija}</h3>{" "}
                 </div>
               )}
@@ -117,10 +123,18 @@ const RezultataiGalRodymas = (props) => {
 
                       <li>
                         <h4>{elm.vardas}</h4>
-                        <h4> {elm.pavarde[0]}</h4> finišavo <h4>{i + 1}</h4>
+                        <h4> {elm.pavarde[0]}</h4>
+                        {context.language === "ENG"
+                          ? "Finish place"
+                          : "Finišavo"}{" "}
+                        <h4>{i + 1}</h4>
                       </li>
                       <li>
-                        <p>Finišavimo laikas :</p>
+                        <p>
+                          {context.language === "ENG"
+                            ? "Finishing time :"
+                            : "Finišavimo laikas :"}
+                        </p>
                         <p>{elm.laikas}</p>
                       </li>
                     </Paper>
@@ -134,7 +148,9 @@ const RezultataiGalRodymas = (props) => {
             <div>
               {distM40.length > 0 && (
                 <div className={classes.kategorija}>
-                  <h5>Kategorija </h5>
+                  <h5>
+                    {context.language === "ENG" ? "Category" : "Kategorija"}{" "}
+                  </h5>
                   <h3>{distM40[0].kategorija}</h3>{" "}
                 </div>
               )}
@@ -150,10 +166,18 @@ const RezultataiGalRodymas = (props) => {
 
                       <li>
                         <h4>{elm.vardas}</h4>
-                        <h4> {elm.pavarde[0]}</h4> finišavo <h4>{i + 1}</h4>
+                        <h4> {elm.pavarde[0]}</h4>
+                        {context.language === "ENG"
+                          ? "Finishing place :"
+                          : "Finišavimo laikas :"}
+                        <h4>{i + 1}</h4>
                       </li>
                       <li>
-                        <p>Finišavimo laikas :</p>
+                        <p>
+                          {context.language === "ENG"
+                            ? "Finishing time :"
+                            : "Finišavimo laikas :"}
+                        </p>
                         <p>{elm.laikas}</p>
                       </li>
                     </Paper>
@@ -183,10 +207,18 @@ const RezultataiGalRodymas = (props) => {
 
                       <li>
                         <h4>{elm.vardas}</h4>
-                        <h4> {elm.pavarde[0]}</h4> finišavo <h4>{i + 1}</h4>
+                        <h4> {elm.pavarde[0]}</h4>
+                        {context.language === "ENG"
+                          ? "Finish place"
+                          : "Finišavo"}{" "}
+                        <h4>{i + 1}</h4>
                       </li>
                       <li>
-                        <p>Finišavimo laikas :</p>
+                        <p>
+                          {context.language === "ENG"
+                            ? "Finishing time :"
+                            : "Finišavimo laikas :"}{" "}
+                        </p>
                         <p>{elm.laikas}</p>
                       </li>
                     </Paper>

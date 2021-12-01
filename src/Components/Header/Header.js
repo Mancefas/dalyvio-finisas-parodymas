@@ -78,7 +78,7 @@ const Header = () => {
       </Box>
 
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Button variant="outlined">
+        <Button disabled="true" variant="outlined">
           {context.language === "ENG" ? "log in" : "prisijungti"}
         </Button>
       </Box>

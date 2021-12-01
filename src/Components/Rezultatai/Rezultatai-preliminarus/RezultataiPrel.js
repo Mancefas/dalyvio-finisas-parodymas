@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./RezultataiPrel.css";
 import { Paper, Container, Button, LinearProgress, Alert } from "@mui/material";
 
 import config from "../../../config.json";
+import Context from "../../../store/Context";
 
 const RezultataiPrel = () => {
+  const context = useContext(Context);
+
   const [rezultatai, setRezultatai] = useState([]);
   const [loading, setLoading] = useState();
   const [show, setShow] = useState(false);
@@ -50,12 +53,18 @@ const RezultataiPrel = () => {
 
       <Container className={"btn"} maxWidth="xs">
         <Button onClick={rezultataiDataHandler} variant="outlined">
-          Rezultatai-preliminarūs
+          {context.language === "ENG"
+            ? "Preliminary results"
+            : "Preliminarūs rezultatai"}
         </Button>
       </Container>
       {noResults && (
         <Container maxWidth="xs" sx={{ marginTop: "1rem" }}>
-          <Alert severity="info">Dar nėra rezultatų!</Alert>
+          <Alert severity="info">
+            {context.language === "ENG"
+              ? "No results yet!"
+              : "Dar nėra rezultatų!"}
+          </Alert>
         </Container>
       )}
       {show && (
@@ -64,11 +73,34 @@ const RezultataiPrel = () => {
             {rezultatai.map((rezultatas, indx) => (
               <li className={"li"} key={rezultatas.laikas}>
                 <Paper elevation={4}>
-                  <h2>Dalyvio numeris : {rezultatas.dalyvis}</h2>
-                  <h3>Atvažiavo į finišą : {indx + 1}</h3>
-                  <h4>Starto laikas - {rezultatas.startas}</h4>
-                  <h4>Finišavimo laikas - {rezultatas.finisas}</h4>
-                  <h4>Rezultatas - {rezultatas.laikas}</h4>
+                  <h2>
+                    {context.language === "ENG"
+                      ? "Race number :"
+                      : "Dalyvio numeris :"}{" "}
+                    {rezultatas.dalyvis}
+                  </h2>
+                  <h3>
+                    {context.language === "ENG"
+                      ? "Finishing place : "
+                      : "Atvažiavo į finišą :"}{" "}
+                    {indx + 1}
+                  </h3>
+                  <h4>
+                    {context.language === "ENG"
+                      ? "🕒 Starting time - "
+                      : "🕒 Starto laikas -"}{" "}
+                    {rezultatas.startas}
+                  </h4>
+                  <h4>
+                    {context.language === "ENG"
+                      ? "🏁Finishing time - "
+                      : "🏁Finišavimo laikas -"}{" "}
+                    {rezultatas.finisas}
+                  </h4>
+                  <h4>
+                    {context.language === "ENG" ? "Result - " : "Rezultatas -"}{" "}
+                    {rezultatas.laikas}
+                  </h4>
                 </Paper>
               </li>
             ))}

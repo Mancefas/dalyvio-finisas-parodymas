@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Container, LinearProgress, Alert } from "@mui/material";
 import RezultataiRodymas from "../RezultataiRodymas";
 
 import config from "../../../config.json";
+import Context from "../../../store/Context";
 
 const RezultataiApdoroti = () => {
+  const context = useContext(Context);
+
   const [loading, setLoading] = useState();
   const [error, setError] = useState(null);
   const [rezultataiSuInfo, setRezultataiSuInfo] = useState([]);
@@ -51,8 +54,6 @@ const RezultataiApdoroti = () => {
         return;
       }
 
-      console.log(rezultatuData);
-
       for (const key in rezultatuData) {
         rezultatuArray.push({
           id: key,
@@ -96,12 +97,20 @@ const RezultataiApdoroti = () => {
       )}
       {noRacers && (
         <Container maxWidth="xs" sx={{ marginTop: "1rem" }}>
-          <Alert severity="info">Nėra suvestų dalyvių!</Alert>
+          <Alert severity="info">
+            {context.language === "ENG"
+              ? "No racers yet!"
+              : "Nėra suvestų dalyvių!"}{" "}
+          </Alert>
         </Container>
       )}
       {noFinishTime && (
         <Container maxWidth="xs" sx={{ marginTop: "1rem" }}>
-          <Alert severity="info">Nėra finišavusių!</Alert>
+          <Alert severity="info">
+            {context.language === "ENG"
+              ? "No one finished yet!"
+              : "Nėra finišavusių!"}{" "}
+          </Alert>
         </Container>
       )}
 
@@ -111,7 +120,7 @@ const RezultataiApdoroti = () => {
         variant="contained"
         sx={{ marginTop: "2rem" }}
       >
-        Rezultatai finišo{" "}
+        {context.language === "ENG" ? "🏆 Results 🏆" : "🏆 Rezultatai 🏆"}{" "}
       </Button>
       {show && !error && !loading && (
         <RezultataiRodymas galutiniaiRez={rezultataiSuInfo} />
