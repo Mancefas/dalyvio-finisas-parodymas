@@ -37,6 +37,9 @@ const Header = () => {
         flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
         justifyContent: "space-between",
+        borderBottom: 1,
+        borderRadius: 5,
+        borderColor: "primary.main",
       }}
     >
       <Box
@@ -84,7 +87,7 @@ const Header = () => {
         </Button>
       </Box>
       <Box>
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <FormControl sx={{ m: 1, minWidth: 80 }}>
           <InputLabel id="demo-simple-select-autowidth-label">
             {context.language === "ENG" ? "Language" : "Kalba"}
           </InputLabel>
