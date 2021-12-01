@@ -17,7 +17,7 @@ const Footer = () => {
         justifyContent: "center",
         height: "10vh",
         borderTop: 1,
-        borderRadius: 5,
+        borderRadius: 3,
         borderColor: "primary.main",
       }}
     >

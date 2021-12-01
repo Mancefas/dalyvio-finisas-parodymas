@@ -9,9 +9,8 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+
+import logoImg from "../../img/logo.png";
 
 import Context from "../../store/Context";
 
@@ -38,7 +37,7 @@ const Header = () => {
         alignItems: "center",
         justifyContent: "space-between",
         borderBottom: 1,
-        borderRadius: 5,
+        borderRadius: 3,
         borderColor: "primary.main",
       }}
     >
@@ -56,9 +55,7 @@ const Header = () => {
           }}
           to="/"
         >
-          <FontAwesomeIcon icon={faFlagCheckered} size={"2x"} />
-
-          <PhoneAndroidIcon color="primary" />
+          <img src={logoImg} alt="" height="75vh" width="auto" />
         </Link>
       </Box>
 
@@ -69,13 +66,12 @@ const Header = () => {
               textDecoration: "none",
               textTransform: "uppercase",
               fontWeight: "bold",
-              color: "#primary",
             }}
             // className={(navData) => (navData.isActive ? classes.link : "")}
             to="/gif-kazlu-ruda"
           >
             <Typography variant="button" color="primary">
-              {context.language === "ENG" ? "Races" : "Varžybos"}
+              {context.language === "ENG" ? "Results" : "Rezultatai"}
             </Typography>
           </Link>
         </Box>
