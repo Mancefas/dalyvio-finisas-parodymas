@@ -5,7 +5,7 @@ import RezultataiPrel from "../Components/Rezultatai/Rezultatai-preliminarus/Rez
 import RezultataiApdoroti from "../Components/Rezultatai/Rezultatai-is-suvestu/RezultataiApdoroti";
 import { Container } from "@mui/material";
 
-const GifKazluRuda = () => {
+const GravelRace = () => {
   return (
     <Container sx={{ minHeight: "72vh" }}>
       <RaceHeader />
@@ -15,4 +15,4 @@ const GifKazluRuda = () => {
   );
 };
 
-export default GifKazluRuda;
+export default GravelRace;

@@ -33,7 +33,7 @@ const Header = () => {
         gap: "1rem",
         backgroundColor: "#FEFFFF",
         display: "flex",
-        flexDirection: { xs: "column", sm: "row" },
+        flexDirection: { xs: "row", sm: "row" },
         alignItems: "center",
         justifyContent: "space-between",
         borderBottom: 1,
@@ -68,7 +68,7 @@ const Header = () => {
               fontWeight: "bold",
             }}
             // className={(navData) => (navData.isActive ? classes.link : "")}
-            to="/gif-kazlu-ruda"
+            to="/gravel-race"
           >
             <Typography variant="button" color="primary">
               {context.language === "ENG" ? "Results" : "Rezultatai"}
@@ -78,7 +78,7 @@ const Header = () => {
       </Box>
 
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Button disabled="true" variant="outlined">
+        <Button disabled="true" size="small" variant="outlined">
           {context.language === "ENG" ? "log in" : "prisijungti"}
         </Button>
       </Box>

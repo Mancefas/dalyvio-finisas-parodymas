@@ -1,15 +1,14 @@
 import "./App.css";
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBiking } from "@fortawesome/free-solid-svg-icons";
+import { LinearProgress, Box } from "@mui/material";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Pages/LandingPage";
 import NoPage from "./Pages/NoPage";
 
-const GifKazluRuda = lazy(() => import("./Pages/GIF-Kazlu-Ruda"));
+const GravelRace = lazy(() => import("./Pages/Gravel-race"));
 
 function App() {
   return (
@@ -17,16 +16,16 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/gif-kazlu-ruda"
+          path="/gravel-race"
           element={
             <Suspense
               fallback={
-                <div>
-                  <FontAwesomeIcon icon={faBiking} size={"2x"} />
-                </div>
+                <Box sx={{ minHeight: "72vh" }}>
+                  <LinearProgress />
+                </Box>
               }
             >
-              <GifKazluRuda />
+              <GravelRace />
             </Suspense>
           }
         />
