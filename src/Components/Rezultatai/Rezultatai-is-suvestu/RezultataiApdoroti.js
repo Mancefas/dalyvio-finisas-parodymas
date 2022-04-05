@@ -2,11 +2,13 @@ import React, { useState, useContext } from "react";
 import { Button, Container, LinearProgress, Alert } from "@mui/material";
 import RezultataiRodymas from "../RezultataiRodymas";
 
-import config from "../../../config.json";
 import Context from "../../../store/Context";
 
-const RezultataiApdoroti = () => {
+const RezultataiApdoroti = (props) => {
   const context = useContext(Context);
+  // Getting links to call APIs from props
+  const results = props.rez;
+  const participants = props.dal;
 
   const [loading, setLoading] = useState();
   const [error, setError] = useState(null);
@@ -20,10 +22,7 @@ const RezultataiApdoroti = () => {
     setNoRacers(false);
     setNoFinishTime(false);
     try {
-      const response = await Promise.all([
-        fetch(config.API_URL_rezultatai),
-        fetch(config.API_URL_dalyviai),
-      ]);
+      const response = await Promise.all([fetch(results), fetch(participants)]);
       const data = await Promise.all(response.map((r) => r.json()));
       const dataDalyviu = data[1];
       const dalyviuArray = [];
