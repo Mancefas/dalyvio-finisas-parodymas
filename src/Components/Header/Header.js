@@ -33,7 +33,7 @@ const Header = () => {
         gap: "1rem",
         backgroundColor: "#FEFFFF",
         display: "flex",
-        flexDirection: { xs: "row", sm: "row" },
+        flexDirection: { xs: "column", sm: "row", md: "row" },
         alignItems: "center",
         justifyContent: "space-between",
         borderBottom: 1,
