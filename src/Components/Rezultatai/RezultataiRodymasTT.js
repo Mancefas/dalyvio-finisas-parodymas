@@ -121,7 +121,7 @@ const RezultataiRodymasTT = (props) => {
                           {context.language === "ENG"
                             ? "Finish place"
                             : "Finišavo"}{" "}
-                          <h4>{elm.laikas === undefined ? "🚫" : i + 1}</h4>
+                          <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
                         </li>
                         <li>
                           <p>
@@ -166,7 +166,7 @@ const RezultataiRodymasTT = (props) => {
                           {context.language === "ENG"
                             ? "Finishing place :"
                             : "Finišavimo :"}
-                          <h4>{i + 1}</h4>
+                          <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
                         </li>
                         <li>
                           <p>
@@ -209,7 +209,7 @@ const RezultataiRodymasTT = (props) => {
                           {context.language === "ENG"
                             ? "Finish place"
                             : "Finišavo"}{" "}
-                          <h4>{i + 1}</h4>
+                          <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
                         </li>
                         <li>
                           <p>
