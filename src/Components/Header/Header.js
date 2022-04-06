@@ -71,7 +71,22 @@ const Header = () => {
             to="/gravel-race"
           >
             <Typography variant="button" color="primary">
-              {context.language === "ENG" ? "Results" : "Rezultatai"}
+              {context.language === "ENG" ? "Results-sample" : "Rezultatai-pvz"}
+            </Typography>
+          </Link>
+        </Box>
+        <Box sx={{ marginLeft: "1rem" }}>
+          <Link
+            style={{
+              textDecoration: "none",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+            }}
+            // className={(navData) => (navData.isActive ? classes.link : "")}
+            to="/gravelonas"
+          >
+            <Typography variant="button" color="primary">
+              {context.language === "ENG" ? "Gravelonas" : "Gravelonas"}
             </Typography>
           </Link>
         </Box>

@@ -7,6 +7,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Pages/LandingPage";
 import NoPage from "./Pages/NoPage";
+import Gravelonas from "./Pages/Gravelonas";
 
 const GravelRace = lazy(() => import("./Pages/Gravel-race"));
 
@@ -29,6 +30,7 @@ function App() {
             </Suspense>
           }
         />
+        <Route path="/gravelonas" element={<Gravelonas />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
