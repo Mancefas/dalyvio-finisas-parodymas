@@ -26,7 +26,11 @@ const RezultataiRodymasTT = (props) => {
     const distClicked = event;
 
     const men = galutiniaiRez.filter((word) => {
-      return word.dviratis === distClicked && word.kategorija === "M";
+      return (
+        word.dviratis === distClicked &&
+        word.kategorija === "M" &&
+        word.laikas !== undefined
+      );
     });
     const uniqueM = [
       ...men.reduce((accumulator, current) => {
@@ -39,7 +43,11 @@ const RezultataiRodymasTT = (props) => {
     setDistM(uniqueM);
 
     const men40 = galutiniaiRez.filter((word) => {
-      return word.dviratis === distClicked && word.kategorija === "M40";
+      return (
+        word.dviratis === distClicked &&
+        word.kategorija === "M40" &&
+        word.laikas !== undefined
+      );
     });
     const uniqueM40 = [
       ...men40.reduce((accumulator, current) => {
@@ -52,7 +60,11 @@ const RezultataiRodymasTT = (props) => {
     setDistM40(uniqueM40);
 
     const women = galutiniaiRez.filter((word) => {
-      return word.dviratis === distClicked && word.kategorija === "W";
+      return (
+        word.dviratis === distClicked &&
+        word.kategorija === "W" &&
+        word.laikas !== undefined
+      );
     });
     const uniqueW = [
       ...women.reduce((accumulator, current) => {
