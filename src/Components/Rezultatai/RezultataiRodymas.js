@@ -191,7 +191,9 @@ const RezultataiGalRodymas = (props) => {
             <div>
               {distW.length > 0 && (
                 <div className={classes.kategorija}>
-                  <h5>Kategorija </h5>
+                  <h5>
+                    {context.language === "ENG" ? "Category" : "Kategorija"}{" "}
+                  </h5>
                   <h3> {distW[0].kategorija}</h3>{" "}
                 </div>
               )}
