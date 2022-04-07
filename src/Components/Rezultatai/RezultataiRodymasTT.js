@@ -60,11 +60,7 @@ const RezultataiRodymasTT = (props) => {
     setDistM40(uniqueM40);
 
     const women = galutiniaiRez.filter((word) => {
-      return (
-        word.dviratis === distClicked &&
-        word.kategorija === "W" &&
-        word.laikas !== undefined
-      );
+      return word.kategorija === "W" && word.laikas !== undefined;
     });
     const uniqueW = [
       ...women.reduce((accumulator, current) => {
