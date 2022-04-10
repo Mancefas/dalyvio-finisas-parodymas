@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Grid, Paper } from "@mui/material";
+import { Grid, Paper, Typography, Avatar, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,7 +8,7 @@ import Context from "../../store/Context";
 
 const ShowingRacerTime = (props) => {
   const context = useContext(Context);
-
+  // Getting array of racers to show. On element it should be arrayOfRacers={}
   const arrayOfGroupRacers = props.arrayOfRacers;
 
   return (
@@ -34,12 +34,25 @@ const ShowingRacerTime = (props) => {
                   )}
 
                   <li>
-                    <h4>{elm.vardas}</h4>
-                    <h4> {elm.pavarde[0]}</h4>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        margin: "0",
+                      }}
+                    >
+                      <Typography sx={{ fontWeight: "bold", color: "#1976D2" }}>
+                        {elm.numeris}
+                      </Typography>{" "}
+                    </Box>
+                    <Typography variant="h5">{elm.vardas}</Typography>
+                    <Typography variant="h5"> {elm.pavarde[0]}</Typography>
                     {context.language === "ENG"
                       ? "Finish place"
                       : "Finišavo"}{" "}
-                    <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
+                    <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+                      {elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}
+                    </Typography>
                   </li>
                   <li>
                     <p>
@@ -47,7 +60,7 @@ const ShowingRacerTime = (props) => {
                         ? "Finishing time :"
                         : "Finišavimo laikas :"}
                     </p>
-                    <p>{elm.laikas}</p>
+                    <Typography variant="h5">{elm.laikas}</Typography>
                   </li>
                 </Paper>
               </ul>
