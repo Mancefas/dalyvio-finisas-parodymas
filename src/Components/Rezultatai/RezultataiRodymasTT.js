@@ -3,6 +3,7 @@ import classes from "../Rezultatai/RezultataiRodymas.module.css";
 import { Grid, Paper, Tabs, Tab } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
+import { sortingRacers } from "../Helpers/helpers";
 
 import Context from "../../store/Context";
 
@@ -25,52 +26,14 @@ const RezultataiRodymasTT = (props) => {
   const distancija = (event) => {
     const distClicked = event;
 
-    const men = galutiniaiRez.filter((word) => {
-      return (
-        word.dviratis === distClicked &&
-        word.kategorija === "M" &&
-        word.laikas !== undefined
-      );
-    });
-    const uniqueM = [
-      ...men.reduce((accumulator, current) => {
-        if (!accumulator.some((x) => x.numeris === current.numeris)) {
-          accumulator.push(current);
-        }
-        return accumulator;
-      }, []),
-    ];
-    setDistM(uniqueM);
+    const men = sortingRacers(galutiniaiRez, distClicked, "M");
+    setDistM(men);
 
-    const men40 = galutiniaiRez.filter((word) => {
-      return (
-        word.dviratis === distClicked &&
-        word.kategorija === "M40" &&
-        word.laikas !== undefined
-      );
-    });
-    const uniqueM40 = [
-      ...men40.reduce((accumulator, current) => {
-        if (!accumulator.some((x) => x.numeris === current.numeris)) {
-          accumulator.push(current);
-        }
-        return accumulator;
-      }, []),
-    ];
-    setDistM40(uniqueM40);
+    const men40 = sortingRacers(galutiniaiRez, distClicked, "M40");
+    setDistM40(men40);
 
-    const women = galutiniaiRez.filter((word) => {
-      return word.kategorija === "W" && word.laikas !== undefined;
-    });
-    const uniqueW = [
-      ...women.reduce((accumulator, current) => {
-        if (!accumulator.some((x) => x.numeris === current.numeris)) {
-          accumulator.push(current);
-        }
-        return accumulator;
-      }, []),
-    ];
-    setDistW(uniqueW);
+    const women = sortingRacers(galutiniaiRez, distClicked, "W");
+    setDistW(women);
 
     setShowRez(true);
   };
