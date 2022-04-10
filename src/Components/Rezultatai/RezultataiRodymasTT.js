@@ -1,15 +1,11 @@
-import React, { useState, useContext } from "react";
-import classes from "../Rezultatai/RezultataiRodymas.module.css";
-import { Grid, Paper, Tabs, Tab } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMedal } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import { Grid, Container, Tabs, Tab } from "@mui/material";
+
 import { sortingRacers } from "../Helpers/helpers";
 
-import Context from "../../store/Context";
+import ShowingRacerTime from "../ShowingRacerTime/ShowingRacerTime";
 
 const RezultataiRodymasTT = (props) => {
-  const context = useContext(Context);
-
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -40,7 +36,9 @@ const RezultataiRodymasTT = (props) => {
 
   return (
     <>
-      <div className={classes.distBtns}>
+      <Container
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         <Tabs onChange={handleChange} value={value}>
           <Tab
             label="MTB"
@@ -55,149 +53,13 @@ const RezultataiRodymasTT = (props) => {
             }}
           />
         </Tabs>
-      </div>
+      </Container>
 
       {showRez && (
         <Grid container spacing={2}>
-          <Grid className={classes.gridInnerItem} item xs={4}>
-            <div>
-              {distM.length > 0 && (
-                <div className={classes.kategorija}>
-                  <h5>
-                    {context.language === "ENG" ? "Category" : "Kategorija"}{" "}
-                  </h5>
-                  <h3>{distM[0].kategorija}</h3>{" "}
-                </div>
-              )}
-
-              <div className={classes.item}>
-                {distM
-                  .sort((a, b) => a.laikasMS - b.laikasMS)
-                  .map((elm, i) => (
-                    <ul className={classes.ul}>
-                      <Paper
-                        elevation={3}
-                        className={classes.name}
-                        key={elm.laikas}
-                      >
-                        {i >= 0 && i <= 2 && (
-                          <div className={classes.icon}>
-                            <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                          </div>
-                        )}
-
-                        <li>
-                          <h4>{elm.vardas}</h4>
-                          <h4> {elm.pavarde[0]}</h4>
-                          {context.language === "ENG"
-                            ? "Finish place"
-                            : "Finišavo"}{" "}
-                          <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
-                        </li>
-                        <li>
-                          <p>
-                            {context.language === "ENG"
-                              ? "Finishing time :"
-                              : "Finišavimo laikas :"}
-                          </p>
-                          <p>{elm.laikas}</p>
-                        </li>
-                      </Paper>
-                    </ul>
-                  ))}
-              </div>
-            </div>
-          </Grid>
-
-          <Grid className={classes.gridInnerItem} item xs={4}>
-            <div>
-              {distM40.length > 0 && (
-                <div className={classes.kategorija}>
-                  <h5>
-                    {context.language === "ENG" ? "Category" : "Kategorija"}{" "}
-                  </h5>
-                  <h3>{distM40[0].kategorija}</h3>{" "}
-                </div>
-              )}
-              <div className={classes.item}>
-                {distM40
-                  .sort((a, b) => a.laikasMS - b.laikasMS)
-                  .map((elm, i) => (
-                    <ul className={classes.ul} key={elm.laikas}>
-                      <Paper elevation={3} className={classes.name}>
-                        {i >= 0 && i <= 2 && (
-                          <div className={classes.icon}>
-                            <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                          </div>
-                        )}
-
-                        <li>
-                          <h4>{elm.vardas}</h4>
-                          <h4> {elm.pavarde[0]}</h4>
-                          {context.language === "ENG"
-                            ? "Finishing place :"
-                            : "Finišavimo :"}
-                          <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
-                        </li>
-                        <li>
-                          <p>
-                            {context.language === "ENG"
-                              ? "Finishing time :"
-                              : "Finišavimo laikas :"}
-                          </p>
-                          <p>{elm.laikas}</p>
-                        </li>
-                      </Paper>
-                    </ul>
-                  ))}
-              </div>
-            </div>
-          </Grid>
-
-          <Grid className={classes.gridInnerItem} item xs={4}>
-            <div>
-              {distW.length > 0 && (
-                <div className={classes.kategorija}>
-                  <h5>
-                    {context.language === "ENG" ? "Category" : "Kategorija"}{" "}
-                  </h5>
-                  <h3> {distW[0].kategorija}</h3>{" "}
-                </div>
-              )}
-              <div className={classes.item}>
-                {distW
-                  .sort((a, b) => a.laikasMS - b.laikasMS)
-                  .map((elm, i) => (
-                    <ul className={classes.ul} key={elm.laikas}>
-                      <Paper elevation={3} className={classes.name}>
-                        {i >= 0 && i <= 2 && (
-                          <div className={classes.icon}>
-                            <FontAwesomeIcon icon={faMedal} size={"2x"} />
-                          </div>
-                        )}
-
-                        <li>
-                          <h4>{elm.vardas}</h4>
-                          <h4> {elm.pavarde[0]}</h4>
-                          {context.language === "ENG"
-                            ? "Finish place"
-                            : "Finišavo"}{" "}
-                          <h4>{elm.laikas === undefined ? "🚫🚴🏻‍♂️" : i + 1}</h4>
-                        </li>
-                        <li>
-                          <p>
-                            {context.language === "ENG"
-                              ? "Finishing time :"
-                              : "Finišavimo laikas :"}{" "}
-                          </p>
-                          <p>{elm.laikas}</p>
-                        </li>
-                      </Paper>
-                    </ul>
-                  ))}
-              </div>
-            </div>
-          </Grid>
+          <ShowingRacerTime arrayOfRacers={distM} />
+          <ShowingRacerTime arrayOfRacers={distM40} />
+          <ShowingRacerTime arrayOfRacers={distW} />
         </Grid>
       )}
     </>
