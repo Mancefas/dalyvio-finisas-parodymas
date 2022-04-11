@@ -7,9 +7,9 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Pages/LandingPage";
 import NoPage from "./Pages/NoPage";
-import Gravelonas from "./Pages/Gravelonas";
 
 const GravelRace = lazy(() => import("./Pages/Gravel-race"));
+const Gravelonas = lazy(() => import("./Pages/Gravelonas"));
 
 function App() {
   return (
@@ -30,7 +30,20 @@ function App() {
             </Suspense>
           }
         />
-        <Route path="/gravelonas" element={<Gravelonas />} />
+        <Route
+          path="/gravelonas"
+          element={
+            <Suspense
+              fallback={
+                <Box sx={{ minHeight: "72vh" }}>
+                  <LinearProgress />
+                </Box>
+              }
+            >
+              <Gravelonas />
+            </Suspense>
+          }
+        />
         <Route path="/" element={<LandingPage />} />
         <Route path="*" element={<NoPage />} />
       </Routes>

@@ -75,7 +75,11 @@ const Header = () => {
             </Typography>
           </Link>
         </Box>
-        <Box sx={{ marginLeft: "1rem" }}>
+        <Box
+          sx={{
+            marginLeft: "1rem",
+          }}
+        >
           <Link
             style={{
               textDecoration: "none",
