@@ -8,7 +8,6 @@ const RezultataiApdorotiTT = (props) => {
   const context = useContext(Context);
   // Getting links to call APIs from props
   const participantsWithData = props.data;
-  // const participantsWithData = config.API_URL_Gravelonas_dalyviai;
 
   const [loading, setLoading] = useState();
   const [error, setError] = useState(null);
@@ -84,7 +83,6 @@ const RezultataiApdorotiTT = (props) => {
       )}
 
       <Button
-        // disabled={true}
         onClick={dataFromAPIHandler}
         variant="contained"
         sx={{ marginTop: "2rem" }}

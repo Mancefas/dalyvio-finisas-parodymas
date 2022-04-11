@@ -1,7 +1,7 @@
-export function sortingRacers(arrayOfRacers, cickedDistance, group) {
+export function sortingRacers(arrayOfRacers, clickedDistance, group) {
   const groupSort = arrayOfRacers.filter((word) => {
     return (
-      word.dviratis === cickedDistance &&
+      word.dviratis === clickedDistance &&
       word.kategorija === group &&
       word.laikas !== undefined
     );
