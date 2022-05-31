@@ -56,7 +56,7 @@ const RezultataiRodymasTT = (props) => {
       </Container>
 
       {showRez && (
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
           <ShowingRacerTime arrayOfRacers={distM} />
           <ShowingRacerTime arrayOfRacers={distM40} />
           <ShowingRacerTime arrayOfRacers={distW} />

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Grid, Paper, Typography, Avatar, Box } from "@mui/material";
+import { Grid, Paper, Typography, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,8 +25,12 @@ const ShowingRacerTime = (props) => {
           {arrayOfGroupRacers
             .sort((a, b) => a.laikasMS - b.laikasMS)
             .map((elm, i) => (
-              <ul className={classes.ul}>
-                <Paper elevation={3} className={classes.name} key={elm.laikas}>
+              <ul key={elm.laikas} className={classes.ul}>
+                <Paper
+                  elevation={3}
+                  className={classes.name}
+                  sx={{ paddingBottom: "0.5rem", paddingX: "0.5rem" }}
+                >
                   {i >= 0 && i <= 2 && (
                     <div className={classes.icon}>
                       <FontAwesomeIcon icon={faMedal} size={"2x"} />

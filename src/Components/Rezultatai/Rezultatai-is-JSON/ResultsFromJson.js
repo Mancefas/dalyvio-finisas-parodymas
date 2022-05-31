@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Button, Container, LinearProgress, Alert } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import RezultataiRodymasTT from "../RezultataiRodymasTT";
 
 import Context from "../../../store/Context";
@@ -34,6 +34,7 @@ const ResultsFromJson = (props) => {
 
   useEffect(() => {
     dataFromAPIHandler();
+    // eslint-disable-next-line
   }, []);
 
   return (
