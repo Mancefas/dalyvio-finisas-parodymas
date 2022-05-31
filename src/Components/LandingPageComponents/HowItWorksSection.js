@@ -47,7 +47,7 @@ const HowItWorksSection = () => {
       </Typography>
 
       <Grid container spacing={8} sx={{ justifyContent: "center" }}>
-        <Grid item xs={10}>
+        <Grid item xs={10} md={7}>
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
@@ -71,7 +71,7 @@ const HowItWorksSection = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={10}>
+        <Grid item xs={10} md={7}>
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
@@ -95,7 +95,7 @@ const HowItWorksSection = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={10}>
+        <Grid item xs={10} md={7}>
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
@@ -157,7 +157,7 @@ const HowItWorksSection = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={10}>
+        <Grid item xs={10} md={7}>
           <Card>
             <CardMedia sx={{ marginTop: "1rem" }}>
               <SvgIcon fontSize="large" color="info">
