@@ -94,6 +94,28 @@ const Header = () => {
             </Typography>
           </Link>
         </Box>
+
+        <Box
+          sx={{
+            marginLeft: "1rem",
+          }}
+        >
+          <Link
+            style={{
+              textDecoration: "none",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+            }}
+            // className={(navData) => (navData.isActive ? classes.link : "")}
+            to="/sparnai_gx"
+          >
+            <Typography variant="button" color="primary">
+              {context.language === "ENG"
+                ? "Sparnai GX intermediate"
+                : "Sparnai GX tarpinis"}
+            </Typography>
+          </Link>
+        </Box>
       </Box>
 
       <Box sx={{ display: "flex", alignItems: "center" }}>

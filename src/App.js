@@ -7,6 +7,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Pages/LandingPage";
 import NoPage from "./Pages/NoPage";
+import SparnaiGX from "./Pages/SparnaiGX";
 
 const GravelRace = lazy(() => import("./Pages/Gravel-race"));
 const Gravelonas = lazy(() => import("./Pages/Gravelonas"));
@@ -44,6 +45,7 @@ function App() {
             </Suspense>
           }
         />
+        <Route path="/sparnai_gx" element={<SparnaiGX />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
